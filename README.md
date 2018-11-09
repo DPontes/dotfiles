@@ -10,3 +10,8 @@ Configuration files for tmux, vim, etc
 	- Makes the active pane borde green
 	- Possible to move between windows with Shift+arrow keys
 	- Splits initial window vertically then horizontally
+
+- `.vimrc`: Configuration for the command line text editor [VIM](https://www.vim.org)
+    - 4 space tabs
+    - new lines are auto-indented
+    - curly-braces({}) will be aligned automatically
