@@ -21,7 +21,7 @@ Configuration files for tmux, vim, etc
 ### Run `tmux` at terminal start
 
 Add the following command to your `~/.bashrc` file:
-```
+```bash
 # Run tmux when starting a new terminal
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
