@@ -15,3 +15,15 @@ Configuration files for tmux, vim, etc
     - 4 space tabs
     - new lines are auto-indented
     - curly-braces({}) will be aligned automatically
+
+## Extra instructions
+
+If you want to have `tmux` running as soon as you open a terminal window, add the following command to your `~/.bashrc` file:
+```
+# Run tmux when starting a new terminal
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+```
+
+Then, source the file: `$> source ~/.bashrc`
