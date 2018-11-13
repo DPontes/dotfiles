@@ -21,7 +21,7 @@ Configuration files for tmux, vim, etc
 ### Run `tmux` at terminal start
 
 Add the following command to your `~/.bashrc` file:
-```
+```bash
 # Run tmux when starting a new terminal
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
@@ -32,8 +32,8 @@ Then, source the file: `$> source ~/.bashrc`
 
 ### Copy+Paste in `tmux` ([more info](https://awhan.wordpress.com/2010/06/20/copy-paste-in-tmux/)):
 
-    - enter copy mode using `<key-bind> [`
-    - navigate to beginning of text, you want to select and hit `Ctrl+Space`
-    - move around using arrow keys to select region
-    - when you reach end of region simply hit `Alt+w` to copy the region
-    - now` <key-bind> ]` will paste the selection
+- enter copy mode using `<key-bind> [`
+- navigate to beginning of text, you want to select and hit `Ctrl+Space`
+- move around using arrow keys to select region
+- when you reach end of region simply hit `Alt+w` to copy the region
+- now `<key-bind> ]` will paste the selection
