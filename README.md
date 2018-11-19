@@ -39,4 +39,4 @@ Then, source the file: `$> source ~/.bashrc`
 - now `<key-bind> ]` will paste the selection
 
 ### Pop /un-pop a specific pane in tmux:
-`<key-bind> z
+`<key-bind> z`
