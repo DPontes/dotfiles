@@ -37,3 +37,6 @@ Then, source the file: `$> source ~/.bashrc`
 - move around using arrow keys to select region
 - when you reach end of region simply hit `Alt+w` to copy the region
 - now `<key-bind> ]` will paste the selection
+
+### Pop /un-pop a specific pane in tmux:
+`<key-bind> z
