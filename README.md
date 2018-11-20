@@ -13,8 +13,10 @@ Configuration files for tmux, vim, etc
 
 - `.vimrc`: Configuration for the command line text editor [VIM](https://www.vim.org)
     - 4 space tabs
-    - new lines are auto-indented
-    - curly-braces({}) will be aligned automatically
+    - New lines are auto-indented
+    - Curly-braces({}) will be aligned automatically
+    - File path and name is showed
+    - Lines are showed
 
 ## Extra instructions
 

@@ -4,3 +4,10 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" # Enable line numbers at startup
+set number
+
+" # Show file path and name at startup
+set laststatus=2
+set statusline=%F  
