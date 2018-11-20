@@ -10,6 +10,9 @@ Configuration files for tmux, vim, etc
 	- Makes the active pane borde green
 	- Possible to move between windows with Shift+arrow keys
 	- Splits initial window vertically then horizontally
+    - **NOTE**: currently this file must be sourced every time tmux is opened:
+        - `<key-bind> : source-file ~/.tmux.conf` or
+        - `tmux source-file ~/.tmux.conf`
 
 - `.vimrc`: Configuration for the command line text editor [VIM](https://www.vim.org)
     - 4 space tabs
