@@ -18,7 +18,9 @@ Configuration files for tmux, vim, etc
     - 4 space tabs
     - New lines are auto-indented
     - Curly-braces({}) will be aligned automatically
-    - File path and name is showed
+    - In the statusbar are showed:
+        - File path and name
+        - Cursor current line and column
     - Lines are showed
 
 ## Extra instructions

@@ -10,4 +10,4 @@ set number
 
 " # Show file path and name at startup
 set laststatus=2
-set statusline=%F  
+set statusline+=%F\ %l\:%c  
