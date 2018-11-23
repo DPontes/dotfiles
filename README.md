@@ -13,6 +13,11 @@ Configuration files for tmux, vim, etc
     - **NOTE**: currently this file must be sourced every time tmux is opened:
         - `<key-bind> : source-file ~/.tmux.conf` or
         - `tmux source-file ~/.tmux.conf`
+    - It's possible to navigate between panes using IJKL keys:
+        - Up: `<key-bind> i`
+        - Down:`<key-bind> k`
+        - Left:`<key-bind> j`
+        - Right:`<key-bind> l`   
 
 - `.vimrc`: Configuration for the command line text editor [VIM](https://www.vim.org)
     - 4 space tabs
