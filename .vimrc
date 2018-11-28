@@ -10,4 +10,7 @@ set number
 
 " # Show file path and name at startup
 set laststatus=2
-set statusline+=%F\ %l\:%c  
+set statusline+=%F\ %l\:%c
+
+" # Set color scheme to "evening"
+colorscheme evening  
