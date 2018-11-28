@@ -18,7 +18,7 @@ Configuration files for tmux, vim, etc
         - Down:`<key-bind> k`
         - Left:`<key-bind> j`
         - Right:`<key-bind> l`
-    - Tmux-resurrect is active
+    - [Tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) is active
         - `<key-bind> Ctrl-s` to save a session
         - `<key-bind> Ctrl-r` to restore a session
         - Saves and restores Vim sessions
