@@ -30,7 +30,7 @@ Configuration files for tmux, vim, etc
         - File path and name
         - Cursor current line and column
     - Lines are showed
-    - Theme "evening" is set
+    - Colorscheme `slate` is set
 
 ## Extra instructions
 
