@@ -21,6 +21,8 @@ Configuration files for tmux, vim, etc
     - Tmux-resurrect is active
         - `<key-bind> Ctrl-s` to save a session
         - `<key-bind> Ctril-r` to restore a session
+        - Saves and restores Vim sessions
+        - Saves and restores shell history
 
 - `.vimrc`: Configuration for the command line text editor [VIM](https://www.vim.org)
     - 4 space tabs
