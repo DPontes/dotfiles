@@ -17,17 +17,20 @@ Configuration files for tmux, vim, etc
         - Up: `<key-bind> i`
         - Down:`<key-bind> k`
         - Left:`<key-bind> j`
-        - Right:`<key-bind> l`   
+        - Right:`<key-bind> l`
+    - Tmux-resurrect is active
+        - `<key-bind> Ctrl-s` to save a session
+        - `<key-bind> Ctril-r` to restore a session
 
 - `.vimrc`: Configuration for the command line text editor [VIM](https://www.vim.org)
     - 4 space tabs
     - New lines are auto-indented
-    - Curly-braces({}) will be aligned automatically
+    - Curly-braces(`{}`) will be aligned automatically
     - In the statusbar are showed:
         - File path and name
         - Cursor current line and column
     - Lines are showed
-    - Theme "Evening" is set
+    - Theme "evening" is set
 
 ## Extra instructions
 
