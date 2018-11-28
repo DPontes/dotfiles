@@ -7,7 +7,7 @@ Configuration files for tmux, vim, etc
 
 - `.tmux.conf`: Configuration file for [TMUX](https://github.com/tmux/tmux)
 	- Changes the key-bind prefix from C-b to C-s
-	- Makes the active pane borde green
+	- Makes the active pane border green
 	- Possible to move between windows with Shift+arrow keys
 	- Splits initial window vertically then horizontally
     - **NOTE**: currently this file must be sourced every time tmux is opened:
@@ -20,7 +20,7 @@ Configuration files for tmux, vim, etc
         - Right:`<key-bind> l`
     - Tmux-resurrect is active
         - `<key-bind> Ctrl-s` to save a session
-        - `<key-bind> Ctril-r` to restore a session
+        - `<key-bind> Ctrl-r` to restore a session
         - Saves and restores Vim sessions
         - Saves and restores shell history
 
@@ -51,7 +51,7 @@ Then, source the file: `$> source ~/.bashrc`
 ### Copy+Paste in `tmux` ([more info](https://awhan.wordpress.com/2010/06/20/copy-paste-in-tmux/)):
 
 - enter copy mode using `<key-bind> [`
-- navigate to beginning of text, you want to select and hit `Ctrl+Space`
+- navigate to beginning of text, you want to select and hit `Ctrl+space`
 - move around using arrow keys to select region
 - when you reach end of region simply hit `Alt+w` to copy the region
 - now `<key-bind> ]` will paste the selection
