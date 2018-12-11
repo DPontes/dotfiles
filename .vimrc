@@ -12,5 +12,5 @@ set number
 set laststatus=2
 set statusline+=%F\ %l\:%c
 
-" # Set color scheme to "evening"
+" # Set color scheme to "slate"
 colorscheme slate

@@ -46,7 +46,18 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 fi
 ```
 
-Then, source the file: `$> source ~/.bashrc`
+### Add an alias for loading tmux configuration
+
+Add the following command to your ~/.bashrc file:
+```bash
+# Run `tmuxconf` to load tmux configuration
+alias tmuxconf='tmux source-file ~/.tmux.conf'
+```
+
+Then, source the file:
+```bash
+$> source ~/.bashrc
+```
 
 ### Copy+Paste in `tmux` ([more info](https://awhan.wordpress.com/2010/06/20/copy-paste-in-tmux/)):
 
