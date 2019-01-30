@@ -9,7 +9,7 @@ Configuration files for tmux, vim, etc
 	- Changes the key-bind prefix from C-b to C-s
 	- Makes the active pane border green
 	- Possible to move between windows with Shift+arrow keys
-	- Splits initial window vertically then horizontally
+    - Status bar colours are configured to be "sortof black" in backgroung, plus other things
     - **NOTE**: currently this file must be sourced every time tmux is opened:
         - `<key-bind> : source-file ~/.tmux.conf` or
         - `tmux source-file ~/.tmux.conf`
