@@ -9,7 +9,7 @@ Configuration files for tmux, vim, etc
 	- Changes the key-bind prefix from C-b to C-s
 	- Makes the active pane border green
 	- Possible to move between windows with Shift+arrow keys
-    - Status bar colours are configured to be "sortof black" in backgroung, plus other things
+    - Status bar colours are configured to be "sortof black" in background, plus other things
     - **NOTE**: currently this file must be sourced every time tmux is opened:
         - `<key-bind> : source-file ~/.tmux.conf` or
         - `tmux source-file ~/.tmux.conf`
@@ -23,6 +23,7 @@ Configuration files for tmux, vim, etc
         - `<key-bind> Ctrl-r` to restore a session
         - Saves and restores Vim sessions
         - Saves and restores shell history
+        - Saves session continuously [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
 
 - `.vimrc`: Configuration for the command line text editor [VIM](https://www.vim.org)
     - 4 space tabs
