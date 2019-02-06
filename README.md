@@ -13,7 +13,7 @@ Configuration files for tmux, vim, etc
     - Status bar colours are configured to be "sortof black" in background, plus other things
     - Status bar shows:
         - Operative System and kernel version
-        - Battery condition
+        - Battery condition (requires `acpi` to be installed)
         - Date and time
     - **NOTE**: currently this file must be sourced every time tmux is opened:
         - `<key-bind> : source-file ~/.tmux.conf` or
