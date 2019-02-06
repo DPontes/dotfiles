@@ -9,10 +9,16 @@ Configuration files for tmux, vim, etc
 	- Changes the key-bind prefix from C-b to C-s
 	- Makes the active pane border green
 	- Possible to move between windows with Shift+arrow keys
+    - Status bar is on top
     - Status bar colours are configured to be "sortof black" in background, plus other things
+    - Status bar shows:
+        - Operative System and kernel version
+        - Battery condition
+        - Date and time
     - **NOTE**: currently this file must be sourced every time tmux is opened:
         - `<key-bind> : source-file ~/.tmux.conf` or
         - `tmux source-file ~/.tmux.conf`
+        - `tmuxconf` alias (this must be configured in `.aliases` file)
     - It's possible to navigate between panes using IJKL keys:
         - Up: `<key-bind> i`
         - Down:`<key-bind> k`
