@@ -17,13 +17,8 @@ Configuration files for tmux, vim, etc
         - Date and time
     - **NOTE**: currently this file must be sourced every time tmux is opened:
         - `<key-bind> : source-file ~/.tmux.conf` or
-        - `tmux source-file ~/.tmux.conf`
+        - `tmux source-file ~/.tmux.conf` or or
         - `tmuxconf` alias (this must be configured in `.aliases` file)
-    - It's possible to navigate between panes using IJKL keys:
-        - Up: `<key-bind> i`
-        - Down:`<key-bind> k`
-        - Left:`<key-bind> j`
-        - Right:`<key-bind> l`
     - [Tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) is active
         - `<key-bind> Ctrl-s` to save a session
         - `<key-bind> Ctrl-r` to restore a session
