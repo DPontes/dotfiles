@@ -73,3 +73,6 @@ $> source ~/.bashrc
 
 ### Pop /un-pop a specific pane in tmux:
 `<key-bind> z`
+
+### Toggle pane synchronization
+`<key-bind>` q
