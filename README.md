@@ -25,7 +25,6 @@ Configuration files for tmux, vim, etc
         - Saves and restores Vim sessions
         - Saves and restores shell history
         - Saves and restores pane content
-        - Saves and restores pane content
         - Saves session continuously [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
 
 - `.vimrc`: Configuration for the command line text editor [VIM](https://www.vim.org)
