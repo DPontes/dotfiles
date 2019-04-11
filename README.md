@@ -26,6 +26,9 @@ Configuration files for tmux, vim, etc
         - Saves and restores shell history
         - Saves and restores pane content
         - Saves session continuously [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
+    - Volume control (requires [amixer](https://linux.die.net/man/1/amixer):
+        - Use `<key-bind>+u` to increase volume
+        - Use `<key-bind>+j` to decrease volume
 
 - `.vimrc`: Configuration for the command line text editor [VIM](https://www.vim.org)
     - 4 space tabs
