@@ -17,7 +17,7 @@ Configuration files for tmux, vim, etc
         - Date and time
     - **NOTE**: currently this file must be sourced every time tmux is opened:
         - `<key-bind> : source-file ~/.tmux.conf` or
-        - `tmux source-file ~/.tmux.conf` or or
+        - `tmux source-file ~/.tmux.conf` or
         - `tmuxconf` alias (this must be configured in `.aliases` file)
     - [Tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) is active
         - `<key-bind> Ctrl-s` to save a session
@@ -26,14 +26,14 @@ Configuration files for tmux, vim, etc
         - Saves and restores shell history
         - Saves and restores pane content
         - Saves session continuously [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
-    - Volume control (requires [amixer](https://linux.die.net/man/1/amixer):
+    - Volume control (requires [amixer](https://linux.die.net/man/1/amixer)):
         - Use `<key-bind>+u` to increase volume
         - Use `<key-bind>+j` to decrease volume
 
 - `.vimrc`: Configuration for the command line text editor [VIM](https://www.vim.org)
     - 4 space tabs
     - New lines are auto-indented
-    - Curly-braces(`{}`) will be aligned automatically
+    - Curly-braces (`{}`) will be aligned automatically
     - In the statusbar are showed:
         - File path and name
         - Cursor current line and column
