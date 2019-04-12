@@ -81,10 +81,18 @@ $> source ~/.bashrc
 
 ### Have alias to control Spotify through the commandline
 
-Add the following alias to you `~/.bashrc` file:
+Add the following aliases to you `~/.bashrc` file:
 ```bash
 alias spotPlay='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause &>/dev/null'
 alias spotStop='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop &>/dev/null'
 alias spotNext='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next &>/dev/null'
 alias spotPrev='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous &>/dev/null'
+```
+
+### Have alias to connect/disconnect bluetooth headset (Must change the physical address):
+
+Add the following aliases to you `~/.bashrc` file:
+```bash
+alias bluecon='echo -e "connect 90:03:B7:AD:31:4D" | bluetoothctl &>/dev/null; echo "Connected"'
+alias bluedis='echo -e "disconnect" | bluetoothctl &>/dev/null; echo "Disconnected"'
 ```
