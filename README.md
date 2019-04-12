@@ -52,19 +52,6 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 fi
 ```
 
-### Add an alias for loading tmux configuration
-
-Add the following command to your `~/.bashrc` file:
-```bash
-# Run `tmuxconf` to load tmux configuration
-alias tmuxconf='tmux source-file ~/.tmux.conf'
-```
-
-Then, source the file:
-```bash
-$> source ~/.bashrc
-```
-
 ### Copy+Paste in `tmux` ([more info](https://awhan.wordpress.com/2010/06/20/copy-paste-in-tmux/)):
 
 - enter copy mode using `<key-bind> [`
@@ -79,20 +66,25 @@ $> source ~/.bashrc
 ### Toggle pane synchronization
 `<key-bind>` q
 
-### Have alias to control Spotify through the commandline
+## Aliases
 
-Add the following aliases to you `~/.bashrc` file:
+Add the following commands to your `~/.bashrc` file:
 ```bash
+# Load tmux configuration
+alias tmuxconf='tmux source-file ~/.tmux.conf'
+
+# Control Spotify Play / Pause / Previous / Next
 alias spotPlay='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause &>/dev/null'
 alias spotStop='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop &>/dev/null'
 alias spotNext='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next &>/dev/null'
 alias spotPrev='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous &>/dev/null'
-```
 
-### Have alias to connect/disconnect bluetooth headset (Must change the physical address):
-
-Add the following aliases to you `~/.bashrc` file:
-```bash
+# Connect / Disconnect BT headset (must change the physical address)
 alias bluecon='echo -e "connect 90:03:B7:AD:31:4D" | bluetoothctl &>/dev/null; echo "Connected"'
 alias bluedis='echo -e "disconnect" | bluetoothctl &>/dev/null; echo "Disconnected"'
+```
+
+Then, source the file:
+```bash
+$> source ~/.bashrc
 ```
