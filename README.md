@@ -39,6 +39,7 @@ Configuration files for tmux, vim, etc
         - Cursor current line and column
     - Lines are showed
     - Colorscheme `slate` is set
+    - Search hits are highlighted
 
 ## Extra instructions
 
