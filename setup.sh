@@ -7,5 +7,3 @@ tmux source-file ~/.tmux.conf
 
 # Vim configuration
 ln -s ~/dotfiles/.vimrc ~/.vimrc
-chmod +x ~/.vimrc
-source ~/.vimrc
