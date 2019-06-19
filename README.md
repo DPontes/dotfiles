@@ -40,6 +40,7 @@ Configuration files for tmux, vim, etc
     - Lines are showed
     - Colorscheme `slate` is set
     - Search hits are highlighted
+    - Shows whitespaces and tabs with arrows
 
 ## Extra instructions
 

@@ -12,9 +12,13 @@ set number
 set laststatus=2
 set statusline+=%F\ %l\:%c
 
-" Highlight search (to remove highlight, do `:noh`.
-" The highlight will return for next search
+" # Highlight search (to remove highlight, do `:noh`.
+" # The highlight will return for next search
 set hlsearch
+
+" # Show tabs
+set listchars=tab:>-,trail:<
+set list
 
 " # Set color scheme to "slate"
 colorscheme desert
