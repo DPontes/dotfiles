@@ -84,6 +84,10 @@ alias spotPrev='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /o
 # Connect / Disconnect BT headset (must change the physical address)
 alias bluecon='echo -e "connect 90:03:B7:AD:31:4D" | bluetoothctl &>/dev/null; echo "Connected"'
 alias bluedis='echo -e "disconnect" | bluetoothctl &>/dev/null; echo "Disconnected"'
+
+# Write the first letters of a command and use Up and Down arrows to go through history for that command
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
 ```
 
 Then, source the file:
