@@ -12,44 +12,44 @@ File to execute when using, for example, a new system where one would like to ha
 
 Configuration file for [TMUX](https://github.com/tmux/tmux)
 
-    - Changes the key-bind prefix from C-b to C-s
-    - Makes the active pane border green
-    - Possible to move between windows with Shift+arrow keys
-    - Status bar is on top
-    - Status bar colours are configured to be "sortof black" in background, plus other things
-    - Status bar shows:
-        - Operative System and kernel version
-        - Battery condition (requires `acpi` to be installed)
-        - Date and time
-    - **NOTE**: currently this file must be sourced every time tmux is opened:
-        - `<key-bind> : source-file ~/.tmux.conf` or
-        - `tmux source-file ~/.tmux.conf` or
-        - `tmuxconf` alias (this must be configured in `.aliases` file)
-    - [Tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) is active
-        - `<key-bind> Ctrl-s` to save a session
-        - `<key-bind> Ctrl-r` to restore a session
-        - Saves and restores Vim sessions
-        - Saves and restores shell history
-        - Saves and restores pane content
-        - Saves session continuously [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
-    - Volume control (requires [amixer](https://linux.die.net/man/1/amixer)):
-        - Use `<key-bind>+u` to increase volume
-        - Use `<key-bind>+j` to decrease volume
+- Changes the key-bind prefix from C-b to C-s
+- Makes the active pane border green
+- Possible to move between windows with Shift+arrow keys
+- Status bar is on top
+- Status bar colours are configured to be "sortof black" in background, plus other things
+- Status bar shows:
+  - Operative System and kernel version
+  - Battery condition (requires `acpi` to be installed)
+  - Date and time
+- **NOTE**: currently this file must be sourced every time tmux is opened:
+  - `<key-bind> : source-file ~/.tmux.conf` or
+  - `tmux source-file ~/.tmux.conf` or
+  - `tmuxconf` alias (this must be configured in `.aliases` file)
+- [Tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) is active
+  - `<key-bind> Ctrl-s` to save a session
+  - `<key-bind> Ctrl-r` to restore a session
+  - Saves and restores Vim sessions
+  - Saves and restores shell history
+  - Saves and restores pane content
+  - Saves session continuously [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
+- Volume control (requires [amixer](https://linux.die.net/man/1/amixer)):
+  - Use `<key-bind>+u` to increase volume
+  - Use `<key-bind>+j` to decrease volume
 
 ### `.vimrc`
 
 Configuration for the command line text editor [VIM](https://www.vim.org)
 
-    - 4 space tabs
-    - New lines are auto-indented
-    - Curly-braces (`{}`) will be aligned automatically
-    - In the statusbar are showed:
-        - File path and name
-        - Cursor current line and column
-    - Lines are showed
-    - Colorscheme `slate` is set
-    - Search hits are highlighted
-    - Shows whitespaces and tabs with arrows
+- 4 space tabs
+- New lines are auto-indented
+- Curly-braces (`{}`) will be aligned automatically
+- In the statusbar are showed:
+  - File path and name
+  - Cursor current line and column
+- Lines are showed
+- Colorscheme `slate` is set
+- Search hits are highlighted
+- Shows whitespaces and tabs with arrows
 
 ## Extra instructions
 
