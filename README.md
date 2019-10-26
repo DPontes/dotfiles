@@ -2,10 +2,16 @@
 
 Configuration files for tmux, vim, etc
 
-## Files:
-- `setup.sh`: file to execute when using, for example, a new system where one would like to have its personal configurations in the applications. Creates links for files that are present in this directory
+## Files
 
-- `.tmux.conf`: Configuration file for [TMUX](https://github.com/tmux/tmux)
+### `setup.sh`
+
+File to execute when using, for example, a new system where one would like to have its personal configurations in the applications. Creates links for files that are present in this directory
+
+### `.tmux.conf`
+
+Configuration file for [TMUX](https://github.com/tmux/tmux)
+
     - Changes the key-bind prefix from C-b to C-s
     - Makes the active pane border green
     - Possible to move between windows with Shift+arrow keys
@@ -30,7 +36,10 @@ Configuration files for tmux, vim, etc
         - Use `<key-bind>+u` to increase volume
         - Use `<key-bind>+j` to decrease volume
 
-- `.vimrc`: Configuration for the command line text editor [VIM](https://www.vim.org)
+### `.vimrc`
+
+Configuration for the command line text editor [VIM](https://www.vim.org)
+
     - 4 space tabs
     - New lines are auto-indented
     - Curly-braces (`{}`) will be aligned automatically
@@ -47,6 +56,7 @@ Configuration files for tmux, vim, etc
 ### Run `tmux` at terminal start
 
 Add the following command to your `~/.bashrc` file:
+
 ```bash
 # Run tmux when starting a new terminal
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
@@ -54,7 +64,7 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 fi
 ```
 
-### Copy+Paste in `tmux` ([more info](https://awhan.wordpress.com/2010/06/20/copy-paste-in-tmux/)):
+### Copy+Paste in `tmux` ([more info](https://awhan.wordpress.com/2010/06/20/copy-paste-in-tmux/))
 
 - enter copy mode using `<key-bind> [`
 - navigate to beginning of text, you want to select and hit `Ctrl+space`
@@ -62,16 +72,20 @@ fi
 - when you reach end of region simply hit `Alt+w` to copy the region
 - now `<key-bind> ]` will paste the selection
 
-### Pop /un-pop a specific pane in tmux:
+### Pop /un-pop a specific pane in tmux
+
 `<key-bind> z`
 
 ### Toggle pane synchronization
+
 `<key-bind>` q
 
 ## Aliases
 
 Add the following commands to your `~/.bashrc` file:
+
 ```bash
+
 # Load tmux configuration
 alias tmuxconf='tmux source-file ~/.tmux.conf'
 
@@ -89,7 +103,7 @@ alias bluedis='echo -e "disconnect" | bluetoothctl &>/dev/null; echo "Disconnect
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
-# Git && Githyb aliases
+# Git && Github aliases
 alias gpm="git push origin master"
 alias gaa="git add -A"
 alias gs="git status"
@@ -98,6 +112,7 @@ alias gd="git diff"
 ```
 
 Then, source the file:
+
 ```bash
 $> source ~/.bashrc
 ```
