@@ -6,9 +6,9 @@ Configuration files for tmux, vim, etc
 - `setup.sh`: file to execute when using, for example, a new system where one would like to have its personal configurations in the applications. Creates links for files that are present in this directory
 
 - `.tmux.conf`: Configuration file for [TMUX](https://github.com/tmux/tmux)
-	- Changes the key-bind prefix from C-b to C-s
-	- Makes the active pane border green
-	- Possible to move between windows with Shift+arrow keys
+    - Changes the key-bind prefix from C-b to C-s
+    - Makes the active pane border green
+    - Possible to move between windows with Shift+arrow keys
     - Status bar is on top
     - Status bar colours are configured to be "sortof black" in background, plus other things
     - Status bar shows:
@@ -88,6 +88,13 @@ alias bluedis='echo -e "disconnect" | bluetoothctl &>/dev/null; echo "Disconnect
 # Write the first letters of a command and use Up and Down arrows to go through history for that command
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
+
+# Git && Githyb aliases
+alias gpm="git push origin master"
+alias gaa="git add -A"
+alias gs="git status"
+alias gc="git commit -m"
+alias gd="git diff"
 ```
 
 Then, source the file:
@@ -95,7 +102,7 @@ Then, source the file:
 $> source ~/.bashrc
 ```
 
-### Git Aliases
+## Git Aliases
 
 Visual git history with branches
 Add this to your `~/.gitconfig` `alias` section:
