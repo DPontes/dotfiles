@@ -40,7 +40,7 @@ Configuration file for [TMUX](https://github.com/tmux/tmux)
 
 Configuration for the command line text editor [VIM](https://www.vim.org)
 
-([raw .vimrc file](https://raw.githubusercontent.com/DPontes/dotfiles/master/.vimrc)
+([raw .vimrc file](https://raw.githubusercontent.com/DPontes/dotfiles/master/.vimrc))
 
 - 4 space tabs
 - New lines are auto-indented
