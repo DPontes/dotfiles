@@ -40,6 +40,8 @@ Configuration file for [TMUX](https://github.com/tmux/tmux)
 
 Configuration for the command line text editor [VIM](https://www.vim.org)
 
+([raw .vimrc file](https://raw.githubusercontent.com/DPontes/dotfiles/master/.vimrc)
+
 - 4 space tabs
 - New lines are auto-indented
 - Curly-braces (`{}`) will be aligned automatically
@@ -105,6 +107,7 @@ bind '"\e[B":history-search-forward'
 
 # Git && Github aliases
 alias gpm="git push origin master"
+alias ga="git add"
 alias gaa="git add -A"
 alias gs="git status"
 alias gc="git commit -m"
