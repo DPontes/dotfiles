@@ -1,9 +1,16 @@
 #!/bin/bash
 
 # TMUX configuration
-ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
-chmod +x ~/.tmux.conf
-tmux source-file ~/.tmux.conf
+if [[ ! -f ~/.tmux.conf ]]
+then
+    echo "Creating tmux.conf file link" && \
+    ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf && \
+    chmod +x ~/.tmux.conf
+fi
 
 # Vim configuration
-ln -s ~/dotfiles/.vimrc ~/.vimrc
+if [[ ! -f ~/.vimrc ]]
+then
+    echo "Creating .vimrc file link" && \
+    ln -s ~/dotfiles/.vimrc ~/.vimrc
+fi
