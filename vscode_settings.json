@@ -1,0 +1,15 @@
+
+{
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["J"],
+            "commands": ["editor.action.moveLinesDownAction"]
+        }, // moveLineDown
+        {
+            "before": ["K"],
+            "commands": ["editor.action.moveLinesUpAction"]
+        } // moveLineUp
+    ],
+}

@@ -112,4 +112,13 @@ Add this to your `~/.gitconfig` `alias` section:
 ```
 [alias]
   lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  st = status
+  d = diff
 ```
+
+## VSCode Settings
+
+Settings present in the `vscode_settings.json` file. When starting from scratch, move the file to `~/.config/Code/User/settings.json` (also present in the `setup-sh` script.)
+
+### Vim
+`vim.normalModeKeyBindingsNonRecursive` : Uses `J` respective `K` to move whole lines down and up along the file

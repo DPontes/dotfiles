@@ -14,3 +14,7 @@ then
     echo "Creating .vimrc file link" && \
     ln -s ~/dotfiles/.vimrc ~/.vimrc
 fi
+
+# VSCode configuration
+echo "Copying VS Code settings file to correct location"
+cp ~/dotfiles/vscode_settings.json ~/.config/Code/User/settings.json
