@@ -75,21 +75,18 @@ Add the following commands to your `~/.bashrc` file:
 # Load tmux configuration
 alias tmuxconf='tmux source-file ~/.tmux.conf'
 
-# Control Spotify Play / Pause / Previous / Next
-alias spotPlay='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause &>/dev/null'
-alias spotStop='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop &>/dev/null'
-alias spotNext='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next &>/dev/null'
-alias spotPrev='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous &>/dev/null'
 
-# Connect / Disconnect BT headset (must change the physical address)
-alias bluecon='echo -e "connect 90:03:B7:AD:31:4D" | bluetoothctl &>/dev/null; echo "Connected"'
-alias bluedis='echo -e "disconnect" | bluetoothctl &>/dev/null; echo "Disconnected"'
+# Change sound profile in BT headset
+alias headset-a2dp="pactl set-card-profile $BLUETOOTHHEADSETNAME a2dp_sink"
+alias headset-call="pactl set-card-profile $BLUETOOTHHEADSETNAME headset_head_unit"
+
+# Find $BLUETOOTHHEADSETNAME with the "pacmd list-cards" command
 
 # Write the first letters of a command and use Up and Down arrows to go through history for that command
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
-# Git && Github aliases
+# Git aliases
 alias gpm="git push origin master"
 alias ga="git add"
 alias gaa="git add -A"
@@ -104,7 +101,7 @@ Then, source the file:
 $> source ~/.bashrc
 ```
 
-## Git Aliases
+## Advanced Git Aliases
 
 Visual git history with branches
 Add this to your `~/.gitconfig` `alias` section:
