@@ -1,7 +1,7 @@
 
 {
     "terminal.integrated.enableMultiLinePasteWarning": false,
-    
+    "editor.formatOnSave": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": ["J"],
@@ -11,5 +11,5 @@
             "before": ["K"],
             "commands": ["editor.action.moveLinesUpAction"]
         } // moveLineUp
-    ],
+    ]
 }
