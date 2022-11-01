@@ -18,3 +18,6 @@ alias gti='git'
 
 # Coffee Time
 alias coffee="reset; cat ~/coffee.txt"
+
+# Weather
+alias wtr="curl wttr.in"
