@@ -21,3 +21,6 @@ alias coffee="reset; cat ~/coffee.txt"
 
 # Weather
 alias wtr="curl wttr.in"
+
+# Internet Speed Test
+alias speed=" curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
