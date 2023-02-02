@@ -24,3 +24,6 @@ alias wtr="curl wttr.in"
 
 # Internet Speed Test
 alias speed=" curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
+
+# Auto Update & Upgrade
+alias auto-update="yes Y | sudo apt update && sudo apt upgrade"
