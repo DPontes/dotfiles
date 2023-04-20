@@ -3,7 +3,6 @@ syntax enable
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set smartindent
 
 " # Enable line numbers at startup
 set number
@@ -11,6 +10,13 @@ set number
 " # Show file path and name at startup
 set laststatus=2
 set statusline+=%F\ %l\:%c
+
+" # Line move commands
+nnoremap K :m .-2<CR>==
+nnoremap J :m .+1<CR>==
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+
 
 " # Highlight search (to remove highlight, do `:noh`.
 " # The highlight will return for next search
@@ -20,5 +26,5 @@ set hlsearch
 set listchars=tab:>-,trail:<
 set list
 
-" # Set color scheme to "slate"
-colorscheme desert
+" # Set color scheme to "darkblue"
+colorscheme darkblue
