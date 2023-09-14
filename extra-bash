@@ -20,7 +20,7 @@ alias gti='git'
 alias coffee="reset; cat ~/coffee.txt"
 
 # Hollywood Hacker
-alias hollywood="docker run --rm -it bcbcarl/hollywood"
+alias hackerman="docker run --rm -it bcbcarl/hollywood"
 
 # Auto Update & Upgrade with automatic "Yes"
-alias auto-update="yes Y | sudo apt update && sudo apt upgrade"
+alias auto-update="sudo apt update && sudo apt upgrade -y"
