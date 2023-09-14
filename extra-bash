@@ -19,11 +19,8 @@ alias gti='git'
 # Coffee Time
 alias coffee="reset; cat ~/coffee.txt"
 
-# Weather
-alias wtr="curl wttr.in"
-
-# Internet Speed Test
-alias speed=" curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
+# Hollywood Hacker
+alias hollywood="docker run --rm -it bcbcarl/hollywood"
 
 # Auto Update & Upgrade with automatic "Yes"
 alias auto-update="yes Y | sudo apt update && sudo apt upgrade"
