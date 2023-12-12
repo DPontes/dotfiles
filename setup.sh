@@ -18,3 +18,9 @@ fi
 # VSCode configuration
 echo "Copying VS Code settings file to correct location"
 cp ~/dotfiles/vscode_settings.json ~/.config/Code/User/settings.json
+
+# git alias configuration
+git config --global alias.st status
+git config --global alias.pl pull
+git config --global alias.d diff
+git config --global alias.aA "add ."
