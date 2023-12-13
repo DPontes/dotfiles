@@ -9,6 +9,7 @@ if [[ ! -f ~/.local/bin/mcfly ]]; then
     fi
     echo "Fetching McFly file" && \
     curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly --to ~/.local/bin
+else
     if ! grep "mcfly init bash" ~/.bashrc
     then
         bashfile='/home/s0001483/.bashrc'
@@ -18,6 +19,5 @@ if [[ ! -f ~/.local/bin/mcfly ]]; then
         source $bashfile && \
         echo "Done! McFly is installed"
     fi
-else
     echo "McFly is already installed!"
 fi
