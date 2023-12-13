@@ -24,6 +24,7 @@ git config --global alias.st status
 git config --global alias.pl pull
 git config --global alias.d diff
 git config --global alias.aA "add ."
+git config --global.alias.l log
 
 # Add all the extra bash commands to ~/.bashrc
 cat extra-bash >> ~/.bashrc
