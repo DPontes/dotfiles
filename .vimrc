@@ -4,6 +4,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+autocmd BufNewFile,BufRead *.date set filetype=date
+autocmd FileType date inoremap <cr> <cr>[<c-r>=strftime("%e-%b-%Y %T")<cr>]
+
 " # Enable line numbers at startup
 set number
 
@@ -27,4 +30,5 @@ set listchars=tab:>-,trail:<
 set list
 
 " # Set color scheme to "darkblue"
-colorscheme darkblue
+colorscheme desert
+
