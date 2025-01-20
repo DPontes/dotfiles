@@ -40,3 +40,10 @@ fi
 # Move neovim config to ~/.config
 echo "Copying Neovim config files..."
 cp -r ~/dotfiles/nvim ~/.config/nvim
+
+# What it says...
+echo "Disabling gnome dock..."
+gnome-extensions disable ubuntu-dock@ubuntu.com
+
+# Append content of extra-bash to end of .bashrc
+cat ~/dotfiles/extra-bash >> ~/.bashrc && source ~/.bashrc

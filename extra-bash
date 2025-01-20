@@ -18,5 +18,3 @@ export EDITOR=vim
 
 # Assign the ESC functionality to Caps Lock
 setxkbmap -option caps:escape
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
