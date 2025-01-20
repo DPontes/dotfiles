@@ -17,7 +17,7 @@ git config --global alias.d diff
 git config --global alias.aA "add ."
 git config --global alias.l log
 git config --global alias.b branch
-git config --global core.editor	"vim"
+git config --global core.editor	"nvim"
 
 # Add .bash_aliases
 if [[ ! -f ~/.bash_aliases ]]
@@ -27,6 +27,7 @@ then
 	source ~/.bash_aliases
 fi
 
+# Instsall fzf (Fuzzy Finder)
 if [[ ! -d ~/.fzf/ ]]
 then
 	echo "Installing fzf..." && \
@@ -35,3 +36,7 @@ then
 	# Set up fzf key bindings and fuzzy completion
 	eval "$(fzf --bash)"
 fi
+
+# Move neovim config to ~/.config
+echo "Copying Neovim config files..."
+cp -r ~/dotfiles/nvim ~/.config/nvim
