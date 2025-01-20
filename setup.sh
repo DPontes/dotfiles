@@ -17,6 +17,7 @@ git config --global alias.d diff
 git config --global alias.aA "add ."
 git config --global alias.l log
 git config --global alias.b branch
+git config --global core.editor	"vim"
 
 # Add .bash_aliases
 if [[ ! -f ~/.bash_aliases ]]
@@ -26,7 +27,7 @@ then
 	source ~/.bash_aliases
 fi
 
-if [[ ! -f ~/.fzf ]]
+if [[ ! -d ~/.fzf/ ]]
 then
 	echo "Installing fzf..." && \
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && \
