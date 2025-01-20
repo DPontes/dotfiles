@@ -9,6 +9,8 @@ then
 fi
 
 # git alias configuration
+echo "Adding additional git config"
+
 git config --global alias.st status
 git config --global alias.pl pull
 git config --global alias.d diff
@@ -17,9 +19,18 @@ git config --global alias.l log
 git config --global alias.b branch
 
 # Add .bash_aliases
-if [[! -f ~/.bash_aliases ]]
+if [[ ! -f ~/.bash_aliases ]]
 then
 	echo "Adding bash_aliases" && \
 	ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases && \
-	chmod +r ~/.bash_aliases
+	source ~/.bash_aliases
+fi
+
+if [[ ! -f ~/.fzf ]]
+then
+	echo "Installing fzf..." && \
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && \
+	~/.fzf/install && \
+	# Set up fzf key bindings and fuzzy completion
+	eval "$(fzf --bash)"
 fi
