@@ -27,7 +27,7 @@ then
 	source ~/.bash_aliases
 fi
 
-# Instsall fzf (Fuzzy Finder)
+# Install fzf (Fuzzy Finder)
 if [[ ! -d ~/.fzf/ ]]
 then
 	echo "Installing fzf..." && \
