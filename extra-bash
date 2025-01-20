@@ -24,3 +24,15 @@ alias hackerman="docker run --rm -it bcbcarl/hollywood"
 
 # Auto Update & Upgrade with automatic "Yes"
 alias auto-update="sudo apt update && sudo apt upgrade -y"
+
+# For Ada Spark development
+export PATH=/opt/GNAT/bin:$PATH
+
+# Vim mode on commandline
+set -o vi
+export EDITOR=vim
+
+# Assign the ESC functionality to Caps Lock
+setxkbmap -option caps:escape
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
