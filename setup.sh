@@ -37,6 +37,16 @@ then
 	eval "$(fzf --bash)"
 fi
 
+# Install bat (a nicer cat)
+if [[ ! -f /usr/bin/batcat ]]
+then
+  echo "Installing bat..." && \
+  sudo apt install bat && \
+  # the following commands are necessary because "bat" is installed as "batcat" due to name clashing
+  mkdir -p ~/.local/bin && \
+  ln -s /usr/bin/batcat ~/.local/bin/bat
+fi
+
 # Move neovim config to ~/.config
 echo "Copying Neovim config files..."
 cp -r ~/dotfiles/nvim ~/.config/nvim
