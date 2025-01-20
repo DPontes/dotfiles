@@ -1,0 +1,7 @@
+# to be placed in ~/.config/lazygit/
+
+customCommands:
+  - key: '<c-p>'
+    command: "git push origin HEAD:refs/for/master"
+    context: 'global'
+    loadingText: 'pushing'
