@@ -14,7 +14,13 @@ export PATH=/opt/GNAT/bin:$PATH
 
 # Vim mode on commandline
 set -o vi
-export EDITOR=vim
+if [ ! -f ~/.inputrc ]; then
+  # If it doesn't exist, create it and add the lines
+  echo -e "set show-mode-in-prompt on\nset vi-ins-mode-string (ins)\nset vi-cmd-mode-string (cmd)" >> ~/.inputrc
+  echo "~/.inputrc file was created and settings added."
+else
+  echo "~/.inputrc file already exists."
+fi
 
 # Assign the ESC functionality to Caps Lock
 setxkbmap -option caps:escape
