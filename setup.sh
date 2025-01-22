@@ -47,6 +47,13 @@ then
   ln -s /usr/bin/batcat ~/.local/bin/bat
 fi
 
+# Install ripgrep (rg) for Telescope live_grep
+if [[ ! -f /usr/bin/rg ]]
+then
+  echo "Installing ripgrep for Telescope..." && \
+  sudo apt-get install ripgrep
+fi
+
 # Install lazygit
 if [[ ! -f /usr/local/bin/lazygit ]]
 then
