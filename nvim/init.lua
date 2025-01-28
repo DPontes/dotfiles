@@ -20,3 +20,6 @@ require("vim-commands")
 
 -- Setup lazy.nvim
 require("lazy").setup("plugins")
+
+-- Setup nvim-dap-ui
+require("dapui").setup()
