@@ -1,5 +1,8 @@
 # dotfiles for UNIX systems
 
+TODO:
+- [ ] Remake the README so it mirrors the current state of the dotfiles
+
 Configuration files for tmux, vim, etc
 
 ## Files
@@ -106,7 +109,7 @@ $> source ~/.bashrc
 Visual git history with branches
 Add this to your `~/.gitconfig` `alias` section:
 
-```
+```bash
 [alias]
   lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
   st = status
@@ -116,16 +119,10 @@ Add this to your `~/.gitconfig` `alias` section:
 ```
 
 # Show current git branch in command line
-```
+```bash
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 export PS1="\[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 ```
 
-## VSCode Settings
-
-Settings present in the `vscode_settings.json` file. When starting from scratch, move the file to `~/.config/Code/User/settings.json` (also present in the `setup-sh` script.)
-
-### Vim
-`vim.normalModeKeyBindingsNonRecursive` : Uses `J` respective `K` to move whole lines down and up along the file
