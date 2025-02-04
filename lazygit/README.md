@@ -25,8 +25,8 @@ customCommands:
 
 ### Key Details
 - **key**: Key binding, e.g., `<c-p>` for "Ctrl + P."
-- **command**: Git command to execute.
-- **context**: Where it’s usable (`global` for anywhere).
+- **command**: Git command to push towards `HEAD:/refs/for/master`
+- **context**: Used when working in a trunk-based repo with Gerrit
 - **loadingText**: Text shown while running the command.
 
 ## Applying Changes
@@ -35,8 +35,9 @@ customCommands:
 
 ## Testing
 1. Open LazyGit.
+2. Stage files and create a commit.
 2. Press `Ctrl + P`.
-3. Confirm the command runs correctly.
+3. Confirm the command runs correctly and that the new commit is available in Gerrit.
 
 ## Notes
 - Ensure you have push permissions.
