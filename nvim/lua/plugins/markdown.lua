@@ -17,7 +17,7 @@ return {
             enabled = false,
             per_level = 2,
             skip_level = 1,
-            skip_heading = false,
+            skip_heading = true,
           },
         }
       })
