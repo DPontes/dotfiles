@@ -20,5 +20,8 @@ if [ ! -f ~/.inputrc ]; then
   echo "~/.inputrc file was created and settings added."
 fi
 
+# PYTHONPATH
+export PATH=$PATH:/home/src/s0001483
+
 # Assign the ESC functionality to Caps Lock
 setxkbmap -option caps:escape
