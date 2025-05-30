@@ -16,10 +16,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# VPN alias
-alias vpnup='nmcli con up Zenseact-SE --ask'
-alias vpndown='nmcli con down Zenseact-SE'
-
 # Avoid misspelling Git
 alias gti='git'
 
