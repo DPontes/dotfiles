@@ -3,7 +3,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "tokyonight",
+				theme = "tokyonight-night",
 			},
 			dependencies = {
 				"nvim-tree/nvim-web-devicons",
