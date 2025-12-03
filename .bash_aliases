@@ -30,3 +30,6 @@ alias hackerman="docker run --rm -it bcbcarl/hollywood"
 
 # Auto Update & Upgrade with automatic "Yes"
 alias auto-update="sudo apt update && sudo apt upgrade -y"
+
+# Tool to connect to bluetooth devices via terminal
+alias btcon="~/dotfiles/bt-connect.sh"
