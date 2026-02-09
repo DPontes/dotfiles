@@ -6,10 +6,10 @@ return {
     config = function()
       local date_time_inserter = require("date-time-inserter")
       date_time_inserter.setup({
-        date_format = 'DDMMYYYY',
+        date_format = '%d-%m-%y',
         date_separator = '/',
         date_time_separator = ' @ ',
-        time_format = 24,
+        time_format ='%H:%M',
         show_seconds = false
       })
       vim.keymap.set("n", "<leader>dt", ":InsertDate<CR>", { noremap = true, silent = true })

@@ -174,6 +174,7 @@ return {
           },
         },
       },
+      {
         name = "Launch file",
         type = "codelldb", -- or "cppdbg" or "lldb"
         request = "launch",
@@ -202,11 +203,11 @@ return {
         },
         -- Add source path mapping
         sourceMap = {
-          ["/proc/self/cwd"] = vim.fn.getcwd(),
+          ["~/src"] = vim.fn.getcwd(),
         },
         -- Alternative: use sourceFileMap for CodeLLDB
         sourceFileMap = {
-          ["/proc/self/cwd"] = vim.fn.getcwd(),
+          ["~/src"] = vim.fn.getcwd(),
         },
       },
       {
@@ -222,7 +223,7 @@ return {
         end,
       },
     }
-    
+
     -- Same configurations for C
     dap.configurations.c = dap.configurations.cpp
     

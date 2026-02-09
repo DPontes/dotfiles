@@ -7,7 +7,6 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		vim.keymap.set("n", "<leader>c", ":Neotree<CR>", {})
 		vim.keymap.set("n", "<leader>fr", ":Neotree reveal<CR>", { desc = "Telescope reveal file in Neotree" })
 	end,
 }

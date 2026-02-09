@@ -20,3 +20,6 @@ require("vim-commands")
 
 -- Setup lazy.nvim
 require("lazy").setup("plugins")
+
+-- Define a normal mode mapping to insert the string and go into insert mode
+vim.keymap.set('n', '<leader>np', 'i- [ ] ', { desc = 'Insert incomplete task box' })
