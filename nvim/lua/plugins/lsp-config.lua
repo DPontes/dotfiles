@@ -24,14 +24,17 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.clangd.setup({
-        capabilities = capabilities
-      })
-      lspconfig.pyright.setup({})
+
+      vim.lsp.config.servers = {
+        lua_ls = {
+          capabilities = capabilities
+        },
+        clangd = {
+          capabilities = capabilities
+        },
+        pyright = {}
+      }
+      --
       -- in :h vim.lsp.buf are all the available configurations for key-bindings for lspconfig
       vim.g.mapleader = " "
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
