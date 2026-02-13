@@ -16,7 +16,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "clangd", },
+        ensure_installed = { "lua_ls", "clangd", "jsonls", "pyright" },
       })
     end,
   },
@@ -32,9 +32,23 @@ return {
         clangd = {
           capabilities = capabilities
         },
-        pyright = {}
+        pyright = {
+          capabilities = capabilities
+        },
+        jsonls = {
+          capabilities = capabilities
+        },
       }
-      --
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "json",
+        callback = function()
+          vim.bo.shiftwidth = 4 -- Set to 2 spaces per tab (change as needed)
+          vim.bo.tabstop = 2
+          vim.bo.expandtab = true
+        end,
+      })
+
       -- in :h vim.lsp.buf are all the available configurations for key-bindings for lspconfig
       vim.g.mapleader = " "
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
