@@ -5,6 +5,7 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set cursorline")
+vim.cmd("colorscheme tokyonight-night")
 vim.g.mapleader = " "
 
 -- removes highlights
