@@ -62,5 +62,5 @@ wmo_emoji() {
 
 EMOJI=$(wmo_emoji "$CODE")
 
-OUTPUT=$(printf '%s %s°C ↓%s° ↑%s°' "$EMOJI" "$TEMP" "$TMIN" "$TMAX")
+OUTPUT=$(printf '%s %s°C 🔻%s°C 🔺%s°C' "$EMOJI" "$TEMP" "$TMIN" "$TMAX")
 printf '%s' "$OUTPUT" | tee "$CACHE_FILE"
