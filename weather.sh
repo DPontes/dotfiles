@@ -1,7 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+CACHE_TTL=300  # seconds between API calls
+
 CITY="${*:?Usage: weather.sh <city name>}"
+CACHE_FILE="/tmp/weather_cache_$(printf '%s' "$CITY" | md5sum | cut -d' ' -f1)"
+
+# Serve from cache if fresh enough
+if [[ -f "$CACHE_FILE" ]]; then
+  AGE=$(( $(date +%s) - $(stat -c %Y "$CACHE_FILE") ))
+  if (( AGE < CACHE_TTL )); then
+    cat "$CACHE_FILE"
+    exit 0
+  fi
+fi
+
 ENCODED_CITY=$(printf '%s' "$CITY" | jq -sRr @uri)
 
 # Geocode city name
@@ -49,4 +62,5 @@ wmo_emoji() {
 
 EMOJI=$(wmo_emoji "$CODE")
 
-printf '%s %s°C ↓%s° ↑%s°' "$EMOJI" "$TEMP" "$TMIN" "$TMAX"
+OUTPUT=$(printf '%s %s°C ↓%s° ↑%s°' "$EMOJI" "$TEMP" "$TMIN" "$TMAX")
+printf '%s' "$OUTPUT" | tee "$CACHE_FILE"
