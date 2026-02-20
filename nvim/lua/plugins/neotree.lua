@@ -1,3 +1,8 @@
+-- neotree.lua — File Tree Explorer
+-- Sidebar file explorer for navigating and managing files/directories.
+-- Keymaps:
+--   <leader>fr  Reveal current file in Neo-tree
+-- Commands: :Neotree to open, j/k to navigate, <CR> to open files.
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",

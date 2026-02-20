@@ -1,12 +1,15 @@
+-- lualine.lua — Statusline
+-- Configures the bottom statusline with Tokyo Night theme.
+-- Shows filename with relative path. No keymaps — always visible.
 return {
 	"nvim-lualine/lualine.nvim",
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
 	config = function()
 		require("lualine").setup({
 			options = {
 				theme = "tokyonight",
-			},
-			dependencies = {
-				"nvim-tree/nvim-web-devicons",
 			},
       sections = {
         lualine_c = {

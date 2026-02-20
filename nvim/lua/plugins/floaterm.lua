@@ -1,3 +1,7 @@
+-- floaterm.lua — Floating Terminal
+-- Opens a floating terminal window inside Neovim.
+-- Keymaps:
+--   <leader>ft  Open a new floating terminal (60% height, 40% width)
 return {
   "voldikss/vim-floaterm",
   config = function()

@@ -1,6 +1,9 @@
+-- alpha.lua — Dashboard / Start Screen
+-- Shows a custom ASCII "ZENSEACT" banner on the Neovim start screen (startify theme).
+-- No keymaps — displayed automatically when opening Neovim with no file argument.
 return {
 	"goolord/alpha-nvim",
-	dependecies = {
+	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
 

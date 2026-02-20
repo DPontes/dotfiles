@@ -1,3 +1,12 @@
+-- copilot.lua — GitHub Copilot (AI Code Completions)
+-- Inline AI code suggestions via GitHub Copilot. Auto-triggers on insert mode.
+-- Integrates with nvim-cmp via copilot-cmp.
+-- Keymaps (insert mode):
+--   <Tab>    Accept suggestion       <M-]>    Next suggestion
+--   <M-[>    Previous suggestion     <C-]>    Dismiss suggestion
+-- Panel keymaps:
+--   <leader>cp  Open suggestion panel
+--   [[  /  ]]   Jump prev/next       <CR>     Accept     gr  Refresh
 return {
   {
     "zbirenbaum/copilot.lua",

@@ -1,3 +1,13 @@
+-- copilotchat.lua — Copilot Chat (AI Assistant)
+-- AI chat assistant inside Neovim for code explanations, reviews, fixes, and more.
+-- Keymaps (normal/visual):
+--   <leader>zz  Toggle chat       <leader>ze  Explain code
+--   <leader>zr  Review code       <leader>zf  Fix code
+--   <leader>zo  Optimize code     <leader>zd  Add documentation
+--   <leader>zt  Write tests       <leader>zc  Complete code
+--   <leader>zq  Ask custom question
+-- Normal only:
+--   <leader>zn  New chat session  <leader>zl  List chats  <leader>zs  Save chat
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",

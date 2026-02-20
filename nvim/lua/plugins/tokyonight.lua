@@ -1,3 +1,6 @@
+-- tokyonight.lua — Color Scheme
+-- Sets the Tokyo Night (night variant) color scheme.
+-- Loads immediately at startup (priority 1000). No keymaps.
 return {
   "folke/tokyonight.nvim",
   lazy = false,

@@ -1,3 +1,9 @@
+-- datetime.lua — Date & Time Inserter
+-- Inserts formatted date/time at cursor. Format: DD/MM/YY, HH:MM.
+-- Keymaps:
+--   <leader>dt   Insert current date
+--   <leader>tt   Insert current time
+--   <leader>dtt  Insert date and time (separated by " @ ")
 return {
   {
     'AntonVanAssche/date-time-inserter.nvim',

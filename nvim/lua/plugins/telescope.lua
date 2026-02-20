@@ -1,3 +1,12 @@
+-- telescope.lua — Fuzzy Finder & Picker
+-- Fuzzy finding over files, text (grep), buffers, and help tags.
+-- Also installs telescope-ui-select to replace vim.ui.select with a Telescope dropdown.
+-- Keymaps:
+--   <leader>fr  Reveal current file in Neo-tree sidebar
+--   <leader>ff  Find files by name
+--   <leader>fg  Live grep (search file contents)
+--   <leader>fb  List open buffers
+--   <leader>fh  Search help tags
 return {
 	{
 		"nvim-telescope/telescope.nvim",

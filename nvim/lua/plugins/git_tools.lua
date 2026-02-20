@@ -1,3 +1,9 @@
+-- git_tools.lua — Git Integration
+-- Git gutter signs (additions, changes, deletions) via gitsigns.
+-- Full Git commands via vim-fugitive (:Git, :Gblame, etc.).
+-- Keymaps:
+--   <leader>gp  Preview git hunk diff
+--   <leader>gb  Toggle inline git blame
 return {
 	{
 		"lewis6991/gitsigns.nvim",

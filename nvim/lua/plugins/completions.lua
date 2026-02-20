@@ -1,3 +1,10 @@
+-- completions.lua — Code Completion (nvim-cmp)
+-- Autocompletion engine with LuaSnip snippets, LSP, and buffer sources.
+-- Uses VS Code-style snippets from friendly-snippets.
+-- Keymaps (insert mode):
+--   <C-b>      Scroll docs up         <C-f>      Scroll docs down
+--   <C-Space>  Trigger completion      <C-e>      Abort/close
+--   <CR>       Confirm selected item
 return {
 	{
 		"hrsh7th/cmp-nvim-lsp",

@@ -1,3 +1,6 @@
+-- none-ls.lua — Formatting (null-ls fork)
+-- Provides code formatting via none-ls. Currently configured with stylua for Lua.
+-- No keymaps — use <leader>gf (from lsp-config) or :lua vim.lsp.buf.format().
 return {
 	"nvimtools/none-ls.nvim",
 	config = function()

@@ -1,3 +1,14 @@
+-- lsp-config.lua — LSP & Mason
+-- Manages LSP servers via Mason (auto-install) and configures nvim-lspconfig.
+-- Servers: lua_ls, clangd, pyright, jsonls. Also installs clang-format and codelldb.
+-- Keymaps:
+--   K            Hover docs              <leader>gd   Go to definition
+--   <leader>gD   Go to declaration       <leader>gi   Go to implementation
+--   <leader>gr   Find references         <leader>gs   Signature help
+--   <leader>gt   Type definition         <leader>gw   Document symbols
+--   <leader>gW   Workspace symbols       <leader>gf   Format buffer
+--   <leader>ca   Code actions (n/v)      <leader>ar   Rename symbol
+--   <leader>ai   Incoming calls          <leader>ao   Outgoing calls
 return {
   {
     "williamboman/mason.nvim",

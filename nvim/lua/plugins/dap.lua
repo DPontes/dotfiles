@@ -1,3 +1,17 @@
+-- dap.lua — Debug Adapter Protocol (Debugger)
+-- Full debugging support for C, C++, and Rust via GDB, CodeLLDB, and LLDB.
+-- Includes DAP UI panels and virtual text for inline variable inspection.
+-- Breakpoint signs: 🔴 breakpoint, 🔶 conditional, ◆ logpoint, 👉 stopped, 🚫 rejected
+-- Keymaps:
+--   <leader>db  Toggle breakpoint           <leader>dB  Conditional breakpoint
+--   <leader>dc  Continue                    <leader>dC  Run to cursor
+--   <leader>di  Step into                   <leader>do  Step out
+--   <leader>dO  Step over                   <leader>dg  Go to line (no execute)
+--   <leader>dj  Stack frame down            <leader>dk  Stack frame up
+--   <leader>dl  Run last config             <leader>dp  Pause
+--   <leader>dr  Toggle REPL                 <leader>ds  Session info
+--   <leader>dt  Terminate session           <leader>dw  Hover widgets
+--   <leader>du  Toggle DAP UI               <leader>de  Eval expression (n/v)
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
