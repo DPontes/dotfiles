@@ -73,6 +73,16 @@ cp -r ~/dotfiles/lazygit/config.yml ~/.config/lazygit/config.yml
 echo "Disabling gnome dock..."
 gnome-extensions disable ubuntu-dock@ubuntu.com
 
+# Fish shell configuration
+if [[ ! -L ~/.config/fish/config.fish ]]
+then
+    echo "Linking fish config..." && \
+    mkdir -p ~/.config/fish && \
+    ln -sf ~/dotfiles/fish/config.fish ~/.config/fish/config.fish && \
+    rm -rf ~/.config/fish/functions && \
+    ln -sf ~/dotfiles/fish/functions ~/.config/fish/functions
+fi
+
 # Append content of extra-bash to end of .bashrc
 cat ~/dotfiles/extra-bash >> ~/.bashrc
 source ~/.bashrc
