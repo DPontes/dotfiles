@@ -83,6 +83,14 @@ then
     ln -sf ~/dotfiles/fish/functions ~/.config/fish/functions
 fi
 
+# Kitty terminal configuration
+if [[ ! -L ~/.config/kitty/kitty.conf ]]
+then
+    echo "Linking kitty config..." && \
+    mkdir -p ~/.config/kitty && \
+    ln -sf ~/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+fi
+
 # Append content of extra-bash to end of .bashrc
 cat ~/dotfiles/extra-bash >> ~/.bashrc
 source ~/.bashrc

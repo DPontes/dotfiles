@@ -1,9 +1,9 @@
-if status is-interactive
-    # Auto-start tmux
-    if type -q tmux; and not set -q TMUX
-        exec tmux
-    end
+# Auto-start tmux
+if status is-interactive; and type -q tmux; and not set -q TMUX
+    exec tmux
+end
 
+if status is-interactive
     # Vi mode
     fish_vi_key_bindings
 
