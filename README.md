@@ -38,6 +38,7 @@ dotfiles/
     ├── tmux-bluetooth.sh
     ├── tmux-vpn.sh
     ├── update-neovim.sh
+    ├── update-kitty.sh
     ├── copilot-install.sh
     ├── maybe-tokyo-night-theme.sh
     └── map-this-dir.sh
