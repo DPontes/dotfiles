@@ -22,12 +22,21 @@ dotfiles/
 ├── extra-bash           # Extra .bashrc content (prompt, vi mode, tmux auto-start)
 ├── coffee.txt           # ASCII art for the coffee alias
 ├── nvim/                # Neovim config (Lua, lazy.nvim)
+├── fish/                # Fish shell config (vi mode, aliases, prompt)
+│   ├── config.fish
+│   ├── fish_aliases.fish
+│   └── functions/
+│       ├── fish_mode_prompt.fish
+│       └── fish_prompt.fish
+├── kitty/               # Kitty terminal config (Tokyo Night theme)
+│   └── kitty.conf
 ├── lazygit/             # lazygit custom config (Gerrit push keybind)
 └── tools/               # Utility scripts (see tools/README.md)
     ├── setup.sh
     ├── bt-connect.sh
     ├── weather.sh
     ├── tmux-bluetooth.sh
+    ├── tmux-vpn.sh
     ├── update-neovim.sh
     ├── copilot-install.sh
     ├── maybe-tokyo-night-theme.sh
@@ -76,6 +85,14 @@ Appended to `~/.bashrc` by `setup.sh`:
 ### `lazygit/`
 
 Custom [lazygit](https://github.com/jesseduffield/lazygit) config — adds `Ctrl+P` to push to `refs/for/master` (Gerrit workflow). Copied to `~/.config/lazygit/` by `setup.sh`.
+
+### `fish/`
+
+[Fish shell](https://fishshell.com/) configuration. Includes auto-start tmux, vi key bindings, fzf integration, Caps Lock → Escape remap, and shell aliases mirroring `.bash_aliases`. Custom prompt with git branch and vi mode indicator.
+
+### `kitty/`
+
+[Kitty](https://sw.kovidgoyal.net/kitty/) terminal emulator configuration with the Tokyo Night color scheme, fish as the default shell, and minimal window chrome.
 
 ## Tools
 
