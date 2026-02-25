@@ -40,6 +40,7 @@ dotfiles/
     ├── update-neovim.sh
     ├── update-kitty.sh
     ├── copilot-install.sh
+    ├── setup-macos.sh
     ├── maybe-tokyo-night-theme.sh
     └── map-this-dir.sh
 ```
