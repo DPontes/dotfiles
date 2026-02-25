@@ -9,6 +9,7 @@ Utility scripts used by the dotfiles setup or run independently.
 | `weather.sh` | Fetches current weather for a city via the Open-Meteo API (5-min cache) | tmux status bar |
 | `tmux-bluetooth.sh` | Prints Bluetooth connection status icon | tmux status bar |
 | `tmux-vpn.sh` | Prints active VPN/WireGuard connection name or "off" | tmux status bar |
+| `check-connection.sh` | Prints connection type icon — ethernet (󰈀), wifi (󰖩), or offline (󰖪) | tmux status bar |
 | `update-neovim.sh` | Downloads and installs the latest Neovim AppImage | Run manually |
 | `update-kitty.sh` | Checks for the latest stable kitty release, shows changelog, and installs if confirmed | Run manually |
 | `update-tmux.sh` | Checks for the latest tmux release, shows changelog, builds from source, and installs if confirmed | Run manually |

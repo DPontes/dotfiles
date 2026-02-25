@@ -40,6 +40,7 @@ dotfiles/
     ├── update-neovim.sh
     ├── update-kitty.sh
     ├── update-tmux.sh
+    ├── check-connection.sh
     ├── copilot-install.sh
     ├── maybe-tokyo-night-theme.sh
     └── map-this-dir.sh
