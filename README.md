@@ -42,6 +42,7 @@ dotfiles/
     ├── update-tmux.sh
     ├── check-connection.sh
     ├── copilot-install.sh
+    ├── setup-macos.sh
     ├── maybe-tokyo-night-theme.sh
     └── map-this-dir.sh
 ```

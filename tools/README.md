@@ -13,6 +13,7 @@ Utility scripts used by the dotfiles setup or run independently.
 | `update-neovim.sh` | Downloads and installs the latest Neovim AppImage | Run manually |
 | `update-kitty.sh` | Checks for the latest stable kitty release, shows changelog, and installs if confirmed | Run manually |
 | `update-tmux.sh` | Checks for the latest tmux release, shows changelog, builds from source, and installs if confirmed | Run manually |
+| `setup-macos.sh` | macOS bootstrap — installs Homebrew packages, symlinks configs, patches paths for macOS | Run manually on a new Mac |
 | `copilot-install.sh` | Installs the GitHub Copilot CLI `.deb` package (amd64/arm64) | Run manually |
 | `maybe-tokyo-night-theme.sh` | Applies the Tokyo Night color scheme to GNOME Terminal | Run manually |
 | `map-this-dir.sh` | Generates and fixes `compile_commands.json` for a Bazel target (for clangd/LSP) | Run manually |
