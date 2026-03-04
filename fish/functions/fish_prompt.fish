@@ -54,7 +54,7 @@ function fish_prompt
                     set -g __prio_gate_ts $now
                 end
                 if test -n "$__prio_gate_cache"
-                    if test "$__prio_gate_cache" = low
+                    if test "$__prio_gate_cache" = low; or test "$__prio_gate_cache" = low_prio
                         set_color green
                     else
                         set_color red
