@@ -42,6 +42,27 @@ function fish_prompt
                 echo -n " ↑$unpushed"
             end
 
+            # prio_gate status (cached for 60s, only in autoheim repos)
+            set -l _remote (git remote get-url origin 2>/dev/null)
+            if string match -q '*gerrit.cicd.autoheim.net*' "$_remote"
+                set -l now (date +%s)
+                if not set -q __prio_gate_cache; or test (math $now - $__prio_gate_ts) -ge 60
+                    set -g __prio_gate_cache (curl -sf -m 3 \
+                        'http://main.observability.primary.prod.swf.autoheim.net:8081/prio/src/src' \
+                        -H 'accept: application/json' 2>/dev/null \
+                        | string match -r '"prio_gate"\s*:\s*"([^"]+)"' | tail -1)
+                    set -g __prio_gate_ts $now
+                end
+                if test -n "$__prio_gate_cache"
+                    if test "$__prio_gate_cache" = low
+                        set_color green
+                    else
+                        set_color red
+                    end
+                    echo -n " ($__prio_gate_cache)"
+                end
+            end
+
             set_color normal
         end
     end
