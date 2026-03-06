@@ -46,11 +46,16 @@ function fish_prompt
             set -l _remote (git remote get-url origin 2>/dev/null)
             if string match -q '*gerrit.cicd.autoheim.net*' "$_remote"
                 set -l now (date +%s)
-                if not set -q __prio_gate_cache; or test (math $now - $__prio_gate_ts) -ge 60
-                    set -g __prio_gate_cache (curl -sf -m 3 \
-                        'http://main.observability.primary.prod.swf.autoheim.net:8081/prio/src/src' \
+                if not set -q __prio_gate_ts; or test (math $now - $__prio_gate_ts) -ge 60
+                    set -l _result (curl -sf -m 3 \
+                        'http://main.observability.primary.prod.swf.autoheim.net:8081/prio/src/master' \
                         -H 'accept: application/json' 2>/dev/null \
                         | string match -r '"prio_gate"\s*:\s*"([^"]+)"' | tail -1)
+                    if test -n "$_result"
+                        set -g __prio_gate_cache $_result
+                    else
+                        set -ge __prio_gate_cache
+                    end
                     set -g __prio_gate_ts $now
                 end
                 if test -n "$__prio_gate_cache"
