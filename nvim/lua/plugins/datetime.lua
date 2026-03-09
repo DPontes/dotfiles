@@ -12,8 +12,7 @@ return {
     config = function()
       local date_time_inserter = require("date-time-inserter")
       date_time_inserter.setup({
-        date_format = '%d-%m-%y',
-        date_separator = '/',
+        date_format = '%d/%m/%y',
         date_time_separator = ' @ ',
         time_format ='%H:%M',
         show_seconds = false
