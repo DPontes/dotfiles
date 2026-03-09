@@ -5,7 +5,15 @@ return {
   "folke/tokyonight.nvim",
   lazy = false,
   priority = 1000,
-  config = function()
+  opts = {
+    on_highlights = function(hl, c)
+      hl.LineNr = { fg = "#737aa2" }
+      hl.LineNrAbove = { fg = "#737aa2" }
+      hl.LineNrBelow = { fg = "#737aa2" }
+    end,
+  },
+  config = function(_, opts)
+    require("tokyonight").setup(opts)
     vim.cmd.colorscheme("tokyonight-night")
   end,
 
