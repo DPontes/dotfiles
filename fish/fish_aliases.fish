@@ -7,8 +7,18 @@ function ff
 end
 
 # VPN
-alias vpnup 'nmcli con up Zenseact-SE --ask'
-alias vpndown 'nmcli con down Zenseact-SE'
+function vpnup
+    read -s -P "🔑 VPN Password: " passwd
+    echo ""
+    printf "vpn.secrets.password:%s" $passwd | nmcli con up Zenseact-SE passwd-file /dev/stdin >/dev/null
+    and echo "✅ Successfully Connected!"
+    or echo "❌ Something went wrong..."
+end
+function vpndown
+    nmcli con down Zenseact-SE &>/dev/null
+    and echo "✅ Successfully Disconnected!"
+    or echo "❌ Something went wrong..."
+end
 
 # Bambu Studio
 alias bambu '~/Downloads/Bambu_Studio_ubuntu-v01.09.07.52-20.04.AppImage'
