@@ -4,7 +4,7 @@ Utility scripts used by the dotfiles setup or run independently.
 
 | Script | Description | Used by |
 |--------|-------------|---------|
-| `setup.sh` | Main bootstrap script — symlinks configs, installs tools (fzf, bat, ripgrep, lazygit), copies Neovim config, sets git aliases | Run manually on a new system |
+| `setup.sh` | Main bootstrap script — symlinks configs, installs tools (fzf, bat, ripgrep, lazygit), copies Neovim and lazygit configs, sets git aliases | Run manually on a new system |
 | `bt-connect.sh` | Connect/disconnect Bluetooth devices by name | `btcon` alias in `.bash_aliases` |
 | `weather.sh` | Fetches current weather for a city via the Open-Meteo API (5-min cache) | tmux status bar |
 | `tmux-bluetooth.sh` | Prints Bluetooth connection status icon | tmux status bar |
@@ -14,7 +14,6 @@ Utility scripts used by the dotfiles setup or run independently.
 | `update-kitty.sh` | Checks for the latest stable kitty release, shows changelog, and installs if confirmed | Run manually |
 | `update-tmux.sh` | Checks for the latest tmux release, shows changelog, builds from source, and installs if confirmed | Run manually |
 | `setup-macos.sh` | macOS bootstrap — installs Homebrew packages, symlinks configs, patches paths for macOS | Run manually on a new Mac |
-| `update-tmux.sh` | Checks for the latest tmux release, shows changelog, builds from source, and installs if confirmed | Run manually |
 | `copilot-install.sh` | Installs the GitHub Copilot CLI `.deb` package (amd64/arm64) | Run manually |
 | `maybe-tokyo-night-theme.sh` | Applies the Tokyo Night color scheme to GNOME Terminal | Run manually |
 | `map-this-dir.sh` | Generates and fixes `compile_commands.json` for a Bazel target (for clangd/LSP) | Run manually |

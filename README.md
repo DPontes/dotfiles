@@ -5,7 +5,7 @@ Personal configuration files and utility scripts for Linux (Ubuntu/GNOME).
 ## Quick Start
 
 ```bash
-git clone ~/dotfiles
+git clone https://github.com/DPontes/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 chmod +x tools/setup.sh
 ./tools/setup.sh
@@ -18,10 +18,10 @@ chmod +x tools/setup.sh
 ```
 dotfiles/
 ├── .bash_aliases        # Shell aliases (loaded via ~/.bash_aliases symlink)
-├── .tmux.conf           # tmux config (Catppuccin Macchiato theme)
+├── .tmux.conf           # tmux config (Tokyo Night theme)
 ├── extra-bash           # Extra .bashrc content (prompt, vi mode, tmux auto-start)
 ├── coffee.txt           # ASCII art for the coffee alias
-├── nvim/                # Neovim config (Lua, lazy.nvim)
+├── nvim/                # Neovim config (Lua, lazy.nvim, Tokyo Night theme)
 ├── fish/                # Fish shell config (vi mode, aliases, prompt)
 │   ├── config.fish
 │   ├── fish_aliases.fish
@@ -51,12 +51,13 @@ dotfiles/
 
 ### `.tmux.conf`
 
-[tmux](https://github.com/tmux/tmux) with the [Catppuccin](https://github.com/catppuccin/tmux) Macchiato theme.
+[tmux](https://github.com/tmux/tmux) with the [Tokyo Night](https://github.com/folke/tokyonight.nvim) color scheme.
 
-- Prefix: `C-s` — Vi-style pane navigation (`h`/`j`/`k`/`l`)
+- Prefix: `C-s`
+- Vi-style pane navigation (`h`/`j`/`k`/`l`)
 - `v` / `b` to split vertically / horizontally
 - `C-h` / `C-l` to switch windows, number keys to resize panes
-- Status bar (top): session, command, path, now-playing, weather, Bluetooth, battery, online status, date & time
+- Status bar (top): session, command, path, zoom indicator, now-playing, weather, Bluetooth, connection status, VPN, date & time, battery
 - Plugins: TPM, resurrect, continuum (auto-restore), online-status, battery, nerd-font-window-name
 
 ### `.bash_aliases`
