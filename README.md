@@ -38,6 +38,7 @@ dotfiles/
     ├── tmux-bluetooth.sh
     ├── tmux-vpn.sh
     ├── update-neovim.sh
+    ├── update-lazygit.sh
     ├── update-kitty.sh
     ├── update-tmux.sh
     ├── check-connection.sh
