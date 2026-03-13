@@ -38,6 +38,29 @@ echo "Found device: $DEVICE_NAME ($MAC_ADDRESS)"
 # Check if device is currently connected
 IS_CONNECTED=$(bluetoothctl info "$MAC_ADDRESS" | grep "Connected: yes")
 
+# Spinner helper
+show_spinner() {
+    local -r sp='/-\|'
+    local -r timeout=$1
+    local -r check_cmd=$2
+    local -r success_msg=$3
+    local -r fail_msg=$4
+    
+    for i in $(seq 1 $((timeout * 4))); do
+        printf "\b${sp:i%4:1}"
+        if eval "$check_cmd"; then
+            printf "\b \n"
+            echo "✓ $success_msg"
+            exit 0
+        fi
+        sleep 0.25
+    done
+    
+    printf "\b \n"
+    echo "✗ $fail_msg"
+    exit 1
+}
+
 if [ "$DISCONNECT_FLAG" = true ]; then
     # Explicit disconnect requested
     if [ -z "$IS_CONNECTED" ]; then
@@ -45,21 +68,13 @@ if [ "$DISCONNECT_FLAG" = true ]; then
         exit 0
     fi
     
-    echo "Disconnecting from $DEVICE_NAME..."
+    echo -n "Disconnecting from $DEVICE_NAME...  "
     echo -e "disconnect $MAC_ADDRESS\nquit" | bluetoothctl > /dev/null 2>&1
     
-    sleep 2
-    
-    # Verify disconnection
-    IS_STILL_CONNECTED=$(bluetoothctl info "$MAC_ADDRESS" 2>/dev/null | grep "Connected: yes")
-    
-    if [ -z "$IS_STILL_CONNECTED" ]; then
-        echo "✓ Successfully disconnected from $DEVICE_NAME"
-        exit 0
-    else
-        echo "✗ Failed to disconnect from $DEVICE_NAME"
-        exit 1
-    fi
+    show_spinner 10 \
+        "! bluetoothctl info '$MAC_ADDRESS' 2>/dev/null | grep -q 'Connected: yes'" \
+        "Successfully disconnected from $DEVICE_NAME" \
+        "Failed to disconnect from $DEVICE_NAME"
 else
     # Toggle mode (default behavior)
     if [ -n "$IS_CONNECTED" ]; then
@@ -69,22 +84,11 @@ else
     fi
     
     # Device is not connected, so connect it
-    echo "Connecting to $DEVICE_NAME..."
+    echo -n "Connecting to $DEVICE_NAME...  "
     echo -e "connect $MAC_ADDRESS\nquit" | bluetoothctl > /dev/null 2>&1
     
-    sleep 2
-    
-    # Verify connection
-    IS_NOW_CONNECTED=$(bluetoothctl info "$MAC_ADDRESS" 2>/dev/null | grep "Connected: yes")
-    
-    if [ -n "$IS_NOW_CONNECTED" ]; then
-        echo "✓ Successfully connected to $DEVICE_NAME"
-        exit 0
-    else
-        echo "✗ Failed to connect to $DEVICE_NAME"
-        echo "Make sure the device is powered on and in range"
-        exit 1
-    fi
+    show_spinner 10 \
+        "bluetoothctl info '$MAC_ADDRESS' 2>/dev/null | grep -q 'Connected: yes'" \
+        "Successfully connected to $DEVICE_NAME" \
+        "Failed to connect to $DEVICE_NAME. Make sure the device is powered on and in range"
 fi
-
-
