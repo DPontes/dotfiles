@@ -11,6 +11,7 @@ Utility scripts used by the dotfiles setup or run independently.
 | `tmux-vpn.sh` | Prints active VPN/WireGuard connection name or "off" | tmux status bar |
 | `check-connection.sh` | Prints connection type icon — ethernet (󰈀), wifi (󰖩), or offline (󰖪) | tmux status bar |
 | `update-neovim.sh` | Downloads and installs the latest Neovim AppImage | Run manually |
+| `update-lazygit.sh` | Downloads and installs the latest Lazygit release | Run manually |
 | `update-kitty.sh` | Checks for the latest stable kitty release, shows changelog, and installs if confirmed | Run manually |
 | `update-tmux.sh` | Checks for the latest tmux release, shows changelog, builds from source, and installs if confirmed | Run manually |
 | `setup-macos.sh` | macOS bootstrap — installs Homebrew packages, symlinks configs, patches paths for macOS | Run manually on a new Mac |
