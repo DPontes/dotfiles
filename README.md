@@ -45,7 +45,8 @@ dotfiles/
     ├── copilot-install.sh
     ├── setup-macos.sh
     ├── maybe-tokyo-night-theme.sh
-    └── map-this-dir.sh
+    ├── map-this-dir.sh
+    └── dap-debug.sh
 ```
 
 ## Configuration

@@ -18,3 +18,4 @@ Utility scripts used by the dotfiles setup or run independently.
 | `copilot-install.sh` | Installs the GitHub Copilot CLI `.deb` package (amd64/arm64) | Run manually |
 | `maybe-tokyo-night-theme.sh` | Applies the Tokyo Night color scheme to GNOME Terminal | Run manually |
 | `map-this-dir.sh` | Generates and fixes `compile_commands.json` for a Bazel target (for clangd/LSP) | Run manually |
+| `dap-debug.sh` | CLI wrapper for GDB in DAP interpreter mode for agent-based debugging | Run manually by agents |
