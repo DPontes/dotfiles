@@ -1,107 +1,110 @@
-# Dotfiles
+# 🌌 Tokyo Night Dotfiles
 
-Personal configuration files and utility scripts for Linux (Ubuntu/GNOME).
+[![OS: Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/)
+[![Shell: Bash/Fish](https://img.shields.io/badge/Shell-Bash%2FFish-green?logo=gnubash&logoColor=white)](https://www.gnu.org/software/bash/)
+[![Editor: Neovim](https://img.shields.io/badge/Editor-Neovim-90E59A?logo=neovim&logoColor=white)](https://neovim.io/)
+[![Multiplexer: tmux](https://img.shields.io/badge/Multiplexer-tmux-blueviolet?logo=tmux&logoColor=white)](https://github.com/tmux/tmux)
+[![Theme: Tokyo Night](https://img.shields.io/badge/Theme-Tokyo%20Night-7aa2f7)](https://github.com/folke/tokyonight.nvim)
 
-## Quick Start
+A comprehensive, aesthetic, and automated development environment tailored for C++, Python, and general software engineering. Features a unified **Tokyo Night** color scheme across Neovim, Tmux, Kitty, and Fish.
+
+---
+
+## 🚀 Quick Start
+
+Get up and running in minutes:
 
 ```bash
-git clone https://github.com/DPontes/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-chmod +x tools/setup.sh
+git clone https://github.com/DPontes/dotfiles.git $HOME/dotfiles
+cd $HOME/dotfiles
 ./tools/setup.sh
 ```
 
-`setup.sh` will symlink configs, install tools (fzf, bat, ripgrep, lazygit), copy the Neovim and lazygit configs, set git aliases, and append extra shell settings to `~/.bashrc`.
+> [!IMPORTANT]
+> The `setup.sh` script will symlink configurations, install essential CLI tools (fzf, bat, ripgrep, lazygit), and configure your shell environment. It is designed for Ubuntu/Debian-based systems but includes macOS support via `tools/setup-macos.sh`.
 
-## Repository Structure
+---
+
+## ✨ Features
+
+- **Unified Aesthetics**: Consistent [Tokyo Night](https://github.com/folke/tokyonight.nvim) theme across all tools.
+- **Powerhouse Editor**: Pre-configured Neovim with LSP, Treesitter, Debugging (DAP), and Copilot integration.
+- **Robust Multiplexer**: Tmux with a custom status bar showing weather, battery, and system connectivity.
+- **Intelligent Shell**: Dual-shell support (Bash/Fish) with Git integration, Vi-mode, and smart aliases.
+- **Automated Tooling**: Custom scripts for Bluetooth management, system updates, and DAP-based debugging.
+
+---
+
+## 📂 Repository Structure
 
 ```
 dotfiles/
-├── .bash_aliases        # Shell aliases (loaded via ~/.bash_aliases symlink)
-├── .tmux.conf           # tmux config (Tokyo Night theme)
-├── extra-bash           # Extra .bashrc content (prompt, vi mode, tmux auto-start)
-├── coffee.txt           # ASCII art for the coffee alias
-├── nvim/                # Neovim config (Lua, lazy.nvim, Tokyo Night theme)
-├── fish/                # Fish shell config (vi mode, aliases, prompt)
-│   ├── config.fish
-│   ├── fish_aliases.fish
-│   └── functions/
-│       ├── fish_mode_prompt.fish
-│       └── fish_prompt.fish
-├── kitty/               # Kitty terminal config (Tokyo Night theme)
-│   └── kitty.conf
-├── lazygit/             # lazygit custom config (Gerrit push keybind)
-└── tools/               # Utility scripts (see tools/README.md)
-    ├── setup.sh
-    ├── bt-connect.sh
-    ├── weather.sh
-    ├── tmux-bluetooth.sh
-    ├── tmux-vpn.sh
-    ├── update-neovim.sh
-    ├── update-lazygit.sh
-    ├── update-kitty.sh
-    ├── update-tmux.sh
-    ├── check-connection.sh
-    ├── copilot-install.sh
-    ├── setup-macos.sh
-    ├── maybe-tokyo-night-theme.sh
-    ├── map-this-dir.sh
-    └── dap-debug.sh
+├── nvim/                # 🛠️ Neovim (IDE-like experience with lazy.nvim)
+├── tmux/                # 🪟 Tmux (.tmux.conf with status bar enhancements)
+├── fish/                # 🐟 Fish Shell (modern shell experience)
+├── kitty/               # 🐈 Kitty Terminal (GPU-accelerated terminal)
+├── lazygit/             # 🌿 Lazygit (TUI for Git with Gerrit support)
+├── tools/               # 🔧 Utility Scripts (Automation & system tools)
+└── extra-bash           # 🐚 Shell initialization & environment setup
 ```
 
-## Configuration
+---
 
-### `.tmux.conf`
+## 🛠️ Components Detail
 
-[tmux](https://github.com/tmux/tmux) with the [Tokyo Night](https://github.com/folke/tokyonight.nvim) color scheme.
+### 💻 Editor (Neovim)
+Managed by `lazy.nvim`. Key plugins include:
+- **LSP**: `mason.nvim` & `nvim-lspconfig` for C++, Python, Lua, and more.
+- **DAP**: Debugging support with `codelldb` and a custom CLI `dap-debug.sh`.
+- **AI**: GitHub Copilot and CopilotChat integration.
+- **UI**: `lualine.nvim`, `neo-tree`, and `telescope.nvim`.
 
-- Prefix: `C-s`
-- Vi-style pane navigation (`h`/`j`/`k`/`l`)
-- `v` / `b` to split vertically / horizontally
-- `C-h` / `C-l` to switch windows, number keys to resize panes
-- Status bar (top): session, command, path, zoom indicator, now-playing, weather, Bluetooth, connection status, VPN, date & time, battery
-- Plugins: TPM, resurrect, continuum (auto-restore), online-status, battery, nerd-font-window-name
+### 🐚 Shells (Bash & Fish)
+- **Bash**: Enhanced with `extra-bash`, featuring a Git-aware prompt and Vi-mode.
+- **Fish**: Fully configured with aliases, Vi-mode, and custom functions in `fish/`.
+- **Aliases**: Common shortcuts for Git, navigation, and system maintenance in `.bash_aliases`.
 
-### `.bash_aliases`
+### 🪟 Multiplexer (Tmux)
+- **Prefix**: `Ctrl-s` (ergonomic replacement for `Ctrl-b`).
+- **Status Bar**: Real-time updates for weather (Open-Meteo), VPN status, and Bluetooth.
+- **Navigation**: Vi-style pane switching (`h,j,k,l`).
 
-| Alias | Description |
-|-------|-------------|
-| `ff` | Open files via fzf + bat preview in Neovim |
-| `vpnup` / `vpndown` | Connect / disconnect VPN |
-| `ll`, `la`, `l` | Common `ls` shortcuts |
-| `vim` | Redirects to `nvim` |
-| `gti` | Typo-proof `git` |
-| `coffee` | ☕ ASCII art |
-| `hackerman` | Hollywood hacker mode (Docker) |
-| `auto-update` | `apt update && upgrade -y` |
-| `btcon` | Bluetooth connect (runs `tools/bt-connect.sh`) |
-| `bambu` | Launch Bambu Studio |
+---
 
-### `extra-bash`
+## 🔧 Customization
 
-Appended to `~/.bashrc` by `setup.sh`:
-- Auto-start tmux on terminal open
-- Git branch in prompt
-- Vi mode with mode indicator
-- Caps Lock → Escape remap
+To override default settings without polluting the main repository:
 
-### `nvim/`
+1. **Weather City**: Set `export TMUX_CITY="YourCity"` in your `.bashrc` or `.zshrc`.
+2. **Local Settings**: The `setup.sh` script sources `$HOME/.bash_local` if it exists. Use this for machine-specific environment variables.
 
-[Neovim](https://neovim.io/) configuration (Lua, managed with [lazy.nvim](https://github.com/folke/lazy.nvim)). Copied to `~/.config/nvim` by `setup.sh`.
+---
 
-### `lazygit/`
+## 🛠️ Utility Tools (`tools/`)
 
-Custom [lazygit](https://github.com/jesseduffield/lazygit) config — adds `Ctrl+P` to push to `refs/for/master` (Gerrit workflow). Copied to `~/.config/lazygit/` by `setup.sh`.
+| Script | Purpose |
+| :--- | :--- |
+| `bt-connect.sh` | CLI-based Bluetooth device management with connection spinner. |
+| `weather.sh` | Fetches weather data with a 5-minute cache to respect API limits. |
+| `dap-debug.sh` | CLI wrapper for GDB/DAP, enabling agent-based C++ debugging. |
+| `update-*.sh` | Automated update scripts for Neovim, Lazygit, Kitty, and Tmux. |
 
-### `fish/`
+---
 
-[Fish shell](https://fishshell.com/) configuration. Includes auto-start tmux, vi key bindings, fzf integration, Caps Lock → Escape remap, and shell aliases mirroring `.bash_aliases`. Custom prompt with git branch and vi mode indicator.
+## 🤝 Contributing
 
-### `kitty/`
+Contributions are welcome! Please feel free to submit a Pull Request or open an issue for any bugs or feature requests.
 
-[Kitty](https://sw.kovidgoyal.net/kitty/) terminal emulator configuration with the Tokyo Night color scheme, fish as the default shell, and minimal window chrome.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Tools
+---
 
-See [`tools/README.md`](tools/README.md) for details on each utility script.
+## 📄 License
 
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---

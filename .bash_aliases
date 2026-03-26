@@ -1,15 +1,18 @@
+# .bash_aliases - Custom bash aliases and functions
+
 # Required so that fzf shows hidden files
 export FZF_DEFAULT_COMMAND='find .'
 
 # opens the chosen file from fzf using coloured bat
 alias ff='nvim $(fzf -m --preview "bat --color=always --style=numbers --line-range=:500 {}")'
 
-# VPN alias
+# VPN aliases
 alias vpnup='nmcli con up Zenseact-SE --ask'
 alias vpndown='nmcli con down Zenseact-SE'
 
-# Open Bambu Sutdio
-alias bambu='~/Downloads/Bambu_Studio_ubuntu-v01.09.07.52-20.04.AppImage'
+# Open Bambu Studio (ensure the path is correct or use a variable)
+BAMBU_STUDIO_APPIMAGE="$HOME/Downloads/Bambu_Studio_ubuntu-v01.09.07.52-20.04.AppImage"
+alias bambu='[[ -f "$BAMBU_STUDIO_APPIMAGE" ]] && "$BAMBU_STUDIO_APPIMAGE" || echo "Bambu Studio not found at $BAMBU_STUDIO_APPIMAGE"'
 
 # some ls aliases
 alias ll='ls -alF'
@@ -23,7 +26,7 @@ alias gti='git'
 alias vim='nvim'
 
 # Coffee Time
-alias coffee="reset; cat ~/dotfiles/coffee.txt"
+alias coffee="reset; cat $HOME/dotfiles/coffee.txt"
 
 # Hollywood Hacker
 alias hackerman="docker run --rm -it bcbcarl/hollywood"
@@ -32,4 +35,4 @@ alias hackerman="docker run --rm -it bcbcarl/hollywood"
 alias auto-update="sudo apt update && sudo apt upgrade -y"
 
 # Tool to connect to bluetooth devices via terminal
-alias btcon="~/dotfiles/tools/bt-connect.sh"
+alias btcon="$HOME/dotfiles/tools/bt-connect.sh"

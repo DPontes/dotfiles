@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
-# This script launches GDB in DAP interpreter mode.
-# It is designed to be used by an agent to send JSON-based DAP messages via stdin.
+# File: tools/dap-debug.sh
+# Description: This script launches GDB in DAP interpreter mode.
+# Dependencies: gdb
+
+set -euo pipefail
 
 if ! command -v gdb &> /dev/null; then
-    echo "Error: gdb is not installed."
+    echo "Error: gdb is not installed." >&2
     exit 1
 fi
 

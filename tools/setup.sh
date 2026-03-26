@@ -1,96 +1,100 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# File: tools/setup.sh
+# Description: Dotfiles setup and environment configuration script.
+# Dependencies: git, curl, tar, sudo (for apt)
+
+set -euo pipefail
+
+# Ensure we're in the dotfiles directory
+DOTFILES_DIR="$HOME/dotfiles"
 
 # TMUX configuration
-if [[ ! -f ~/.tmux.conf ]]
-then
-    echo "Creating tmux.conf file link" && \
-    ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf && \
-    chmod +x ~/.tmux.conf
+if [[ ! -f "$HOME/.tmux.conf" ]]; then
+    echo "Linking .tmux.conf"
+    ln -sf "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
 fi
 
 # Add .bash_aliases
-if [[ ! -f ~/.bash_aliases ]]
-then
-	echo "Adding bash_aliases" && \
-	ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases && \
-	source ~/.bash_aliases
+if [[ ! -f "$HOME/.bash_aliases" ]]; then
+    echo "Linking .bash_aliases"
+    ln -sf "$DOTFILES_DIR/.bash_aliases" "$HOME/.bash_aliases"
 fi
 
 # git alias configuration
-echo "Adding additional git config"
-
+echo "Configuring git aliases"
 git config --global alias.st status
 git config --global alias.pl pull
 git config --global alias.d diff
 git config --global alias.aA "add ."
 git config --global alias.l log
 git config --global alias.b branch
-git config --global core.editor	"nvim"
+git config --global core.editor "nvim"
 
 # Install fzf (Fuzzy Finder)
-if [[ ! -d ~/.fzf/ ]]
-then
-	echo "Installing fzf..." && \
-	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && \
-	~/.fzf/install && \
-	# Set up fzf key bindings and fuzzy completion
-	eval "$(fzf --bash)"
+if [[ ! -d "$HOME/.fzf" ]]; then
+    echo "Installing fzf..."
+    git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+    "$HOME/.fzf/install" --all --no-update-rc
 fi
 
 # Install bat (a nicer cat)
-if [[ ! -f /usr/bin/batcat ]]
-then
-  echo "Installing bat..." && \
-  sudo apt install bat && \
-  # the following commands are necessary because "bat" is installed as "batcat" due to name clashing
-  mkdir -p ~/.local/bin && \
-  ln -s /usr/bin/batcat ~/.local/bin/bat
+if ! command -v bat &> /dev/null && ! command -v batcat &> /dev/null; then
+    echo "Installing bat..."
+    sudo apt update && sudo apt install -y bat
+    mkdir -p "$HOME/.local/bin"
+    ln -sf /usr/bin/batcat "$HOME/.local/bin/bat"
 fi
 
 # Install ripgrep (rg) for Telescope live_grep
-if [[ ! -f /usr/bin/rg ]]
-then
-  echo "Installing ripgrep for Telescope..." && \
-  sudo apt-get install ripgrep
+if ! command -v rg &> /dev/null; then
+    echo "Installing ripgrep..."
+    sudo apt update && sudo apt install -y ripgrep
 fi
 
 # Install lazygit
-if [[ ! -f /usr/local/bin/lazygit ]]
-then
-  echo "Installing Lazygit..." && \
-  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*') && \
-  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" && \
-  tar xf lazygit.tar.gz lazygit && \
-  rm lazygit.tar.gz
+if ! command -v lazygit &> /dev/null; then
+    echo "Installing lazygit..."
+    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": *"v\K[^"]*')
+    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+    tar xf lazygit.tar.gz lazygit
+    sudo install lazygit /usr/local/bin/
+    rm lazygit lazygit.tar.gz
 fi
 
-# Move neovim config to ~/.config
-echo "Copying Neovim config files..."
-cp -r ~/dotfiles/nvim ~/.config/nvim
-cp -r ~/dotfiles/lazygit/config.yml ~/.config/lazygit/config.yml
+# Neovim and lazygit config
+echo "Configuring Neovim and Lazygit..."
+mkdir -p "$HOME/.config/nvim"
+mkdir -p "$HOME/.config/lazygit"
+ln -sfT "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+ln -sf "$DOTFILES_DIR/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
 
-# What it says...
-echo "Disabling gnome dock..."
-gnome-extensions disable ubuntu-dock@ubuntu.com
+# gnome dock
+if command -v gnome-extensions &> /dev/null; then
+    echo "Disabling gnome dock..."
+    gnome-extensions disable ubuntu-dock@ubuntu.com || true
+fi
 
 # Fish shell configuration
-if [[ ! -L ~/.config/fish/config.fish ]]
-then
-    echo "Linking fish config..." && \
-    mkdir -p ~/.config/fish && \
-    ln -sf ~/dotfiles/fish/config.fish ~/.config/fish/config.fish && \
-    rm -rf ~/.config/fish/functions && \
-    ln -sf ~/dotfiles/fish/functions ~/.config/fish/functions
+if [[ ! -L "$HOME/.config/fish/config.fish" ]]; then
+    echo "Linking fish config..."
+    mkdir -p "$HOME/.config/fish"
+    ln -sf "$DOTFILES_DIR/fish/config.fish" "$HOME/.config/fish/config.fish"
+    rm -rf "$HOME/.config/fish/functions"
+    ln -sf "$DOTFILES_DIR/fish/functions" "$HOME/.config/fish/functions"
 fi
 
 # Kitty terminal configuration
-if [[ ! -L ~/.config/kitty/kitty.conf ]]
-then
-    echo "Linking kitty config..." && \
-    mkdir -p ~/.config/kitty && \
-    ln -sf ~/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+if [[ ! -L "$HOME/.config/kitty/kitty.conf" ]]; then
+    echo "Linking kitty config..."
+    mkdir -p "$HOME/.config/kitty"
+    ln -sf "$DOTFILES_DIR/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
 fi
 
-# Append content of extra-bash to end of .bashrc
-cat ~/dotfiles/extra-bash >> ~/.bashrc
-source ~/.bashrc
+# Append extra-bash to .bashrc if not already present
+if ! grep -q "source $DOTFILES_DIR/extra-bash" "$HOME/.bashrc"; then
+    echo "Adding extra-bash to .bashrc"
+    echo "source $DOTFILES_DIR/extra-bash" >> "$HOME/.bashrc"
+fi
+
+echo "Setup complete. Please restart your shell."

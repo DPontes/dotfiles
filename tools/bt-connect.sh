@@ -1,17 +1,28 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Bluetooth device connect/disconnect script
-# Usage: ./bt-toggle.sh [--disconnect] "Device Name"
+# File: tools/bt-connect.sh
+# Description: Bluetooth device connect/disconnect script with toggle capability.
+# Dependencies: bluetoothctl, awk, grep
+
+set -euo pipefail
+
+# Check for required dependencies
+for cmd in bluetoothctl awk grep; do
+    if ! command -v "$cmd" &> /dev/null; then
+        echo "Error: Required dependency '$cmd' is not installed." >&2
+        exit 1
+    fi
+done
 
 DISCONNECT_FLAG=false
 
 # Parse arguments
-if [ "$1" = "--disconnect" ]; then
+if [ "${1:-}" = "--disconnect" ]; then
     DISCONNECT_FLAG=true
     shift
 fi
 
-if [ -z "$1" ]; then
+if [ -z "${1:-}" ]; then
     echo "Error: No device name provided"
     echo "Usage: $0 [--disconnect] \"Device Name\""
     echo ""
@@ -23,7 +34,7 @@ fi
 DEVICE_NAME="$1"
 
 # Get the MAC address for the device name
-MAC_ADDRESS=$(bluetoothctl devices | grep -i "$DEVICE_NAME" | awk '{print $2}')
+MAC_ADDRESS=$(bluetoothctl devices | grep -i "$DEVICE_NAME" | awk '{print $2}' | head -n 1)
 
 if [ -z "$MAC_ADDRESS" ]; then
     echo "Error: Device '$DEVICE_NAME' not found"
@@ -36,15 +47,16 @@ fi
 echo "Found device: $DEVICE_NAME ($MAC_ADDRESS)"
 
 # Check if device is currently connected
-IS_CONNECTED=$(bluetoothctl info "$MAC_ADDRESS" | grep "Connected: yes")
+# We use || true because grep returns non-zero if no match is found, and set -e is on
+IS_CONNECTED=$(bluetoothctl info "$MAC_ADDRESS" | grep "Connected: yes" || true)
 
 # Spinner helper
 show_spinner() {
-    local -r sp='/-\|'
     local -r timeout=$1
     local -r check_cmd=$2
     local -r success_msg=$3
     local -r fail_msg=$4
+    local -r sp='/-\|'
     
     for i in $(seq 1 $((timeout * 4))); do
         printf "\b${sp:i%4:1}"

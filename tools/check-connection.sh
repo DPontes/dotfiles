@@ -1,8 +1,16 @@
-#!/bin/bash
-# Prints a nerd-font icon for the current network connection type.
-#   󰖩  = wifi only
-#   󰈀  = ethernet (with or without wifi)
-#   󰖪  = offline
+#!/usr/bin/env bash
+
+# File: tools/check-connection.sh
+# Description: Prints a nerd-font icon for the current network connection type.
+# Dependencies: nmcli
+
+set -euo pipefail
+
+# Check for required dependencies
+if ! command -v nmcli &> /dev/null; then
+    echo "󰖪 no nmcli"
+    exit 0
+fi
 
 ethernet=false
 wifi=false

@@ -1,3 +1,5 @@
+# extra-bash - Additional bash configurations and environment variables
+
 # Run tmux when starting a new terminal
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
@@ -10,18 +12,28 @@ parse_git_branch() {
 export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 
 # For Ada Spark development
-export PATH=/opt/GNAT/bin:$PATH
+if [ -d "/opt/GNAT/bin" ]; then
+    export PATH="/opt/GNAT/bin:$PATH"
+fi
 
 # Vim mode on commandline
 set -o vi
-if [ ! -f ~/.inputrc ]; then
-  # If it doesn't exist, create it and add the lines
-  echo -e "set show-mode-in-prompt on\nset vi-ins-mode-string (ins)\nset vi-cmd-mode-string (cmd)" >> ~/.inputrc
-  echo "~/.inputrc file was created and settings added."
+if [ ! -f "$HOME/.inputrc" ]; then
+  cat > "$HOME/.inputrc" <<EOF
+set show-mode-in-prompt on
+set vi-ins-mode-string (ins)
+set vi-cmd-mode-string (cmd)
+EOF
+  echo "$HOME/.inputrc file was created and settings added."
 fi
 
-# PYTHONPATH
-export PATH=$PATH:/home/src/s0001483
+# PYTHONPATH and PATH additions
+# Assuming /home/src/s0001483 was intended to be a project directory in home
+if [ -d "$HOME/src/s0001483" ]; then
+    export PATH="$PATH:$HOME/src/s0001483"
+fi
 
-# Assign the ESC functionality to Caps Lock
-setxkbmap -option caps:escape
+# Assign the ESC functionality to Caps Lock (requires X11)
+if command -v setxkbmap &> /dev/null && [ -n "${DISPLAY:-}" ]; then
+    setxkbmap -option caps:escape
+fi

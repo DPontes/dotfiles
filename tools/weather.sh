@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
+
+# File: tools/weather.sh
+# Description: Fetches and caches current weather information for a specified city using Open-Meteo API.
+# Dependencies: curl, jq, md5sum, stat
+
 set -euo pipefail
+
+# Check for required dependencies
+for cmd in curl jq md5sum stat; do
+    if ! command -v "$cmd" &> /dev/null; then
+        echo "Error: Required dependency '$cmd' is not installed." >&2
+        exit 1
+    fi
+done
 
 CACHE_TTL=300  # seconds between API calls
 
