@@ -18,3 +18,4 @@ if status is-interactive
     # Load aliases
     source ~/dotfiles/fish/fish_aliases.fish
 end
+direnv hook fish | source
