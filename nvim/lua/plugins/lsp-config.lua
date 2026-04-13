@@ -36,20 +36,12 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      vim.lsp.config.servers = {
-        lua_ls = {
-          capabilities = capabilities
-        },
-        clangd = {
-          capabilities = capabilities
-        },
-        pyright = {
-          capabilities = capabilities
-        },
-        jsonls = {
-          capabilities = capabilities
-        },
-      }
+      vim.lsp.config("lua_ls",  { capabilities = capabilities })
+      vim.lsp.config("clangd",  { capabilities = capabilities })
+      vim.lsp.config("pyright", { capabilities = capabilities })
+      vim.lsp.config("jsonls",  { capabilities = capabilities })
+
+      vim.lsp.enable({ "lua_ls", "clangd", "pyright", "jsonls" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "json",
@@ -64,7 +56,7 @@ return {
       vim.g.mapleader = " "
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, {})
-      vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+      vim.keymap.set("n", "<leader>gf", function() vim.lsp.buf.format({ async = true }) end, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
