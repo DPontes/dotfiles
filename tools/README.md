@@ -6,10 +6,10 @@ Utility scripts used by the dotfiles setup or run independently.
 |--------|-------------|---------|
 | `setup.sh` | Main bootstrap script — installs tools (fzf, bat, ripgrep, lazygit), sets git aliases | `make install-tools` |
 | `bt-connect.sh` | Connect/disconnect Bluetooth devices by name | `btcon` alias in `.bash_aliases` |
-| `weather.sh` | Fetches current weather for a city via the Open-Meteo API (5-min cache) | tmux status bar |
+| `tmux-weather.sh` | Fetches current weather for a city via the Open-Meteo API (5-min cache) | tmux status bar |
 | `tmux-bluetooth.sh` | Prints Bluetooth connection status icon | tmux status bar |
 | `tmux-vpn.sh` | Prints active VPN/WireGuard connection name or "off" | tmux status bar |
-| `check-connection.sh` | Prints connection type icon — ethernet (󰈀), wifi (󰖩), or offline (󰖪) | tmux status bar |
+| `tmux-check-connection.sh` | Prints connection type icon — ethernet, wifi, or offline | tmux status bar |
 | `update-neovim.sh` | Downloads and installs the latest Neovim AppImage | `make update` |
 | `update-lazygit.sh` | Downloads and installs the latest Lazygit release | `make update` |
 | `update-kitty.sh` | Checks for the latest stable kitty release, shows changelog, and installs if confirmed | `make update` |

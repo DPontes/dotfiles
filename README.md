@@ -105,6 +105,19 @@ To override default settings without polluting the main repository:
 | `dap-debug.sh` | CLI wrapper for GDB/DAP, enabling agent-based C++ debugging. |
 | `update-*.sh` | Automated update scripts for Neovim, Lazygit, Kitty, and Tmux. |
 
+## Tmux Status Bar Scripts (`tools/tmux-*.sh`)
+
+These scripts display real-time information in the tmux status bar:
+
+| Script | Description | Status Bar |
+| :--- | :--- | :--- |
+| `tmux-bluetooth.sh` | Shows Bluetooth connection status (icon) | Right side |
+| `tmux-check-connection.sh` | Shows connection type (ethernet/wifi/offline) | Right side |
+| `tmux-vpn.sh` | Shows active VPN connection name | Right side |
+| `tmux-weather.sh` | Fetches weather data with 5-minute cache | Right side |
+
+These are called automatically by tmux via `.tmux.conf`. They run on each status bar refresh.
+
 ---
 
 ## Contributing
