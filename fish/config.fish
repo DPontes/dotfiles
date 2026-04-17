@@ -19,3 +19,6 @@ if status is-interactive
     source ~/dotfiles/fish/fish_aliases.fish
 end
 direnv hook fish | source
+
+# opencode
+fish_add_path /home/s0001483/.opencode/bin

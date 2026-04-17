@@ -17,11 +17,27 @@ Get up and running in minutes:
 ```bash
 git clone https://github.com/DPontes/dotfiles.git $HOME/dotfiles
 cd $HOME/dotfiles
-./tools/setup.sh
+make setup
 ```
 
-> [!IMPORTANT]
-> The `setup.sh` script will symlink configurations, install essential CLI tools (fzf, bat, ripgrep, lazygit), and configure your shell environment. It is designed for Ubuntu/Debian-based systems but includes macOS support via `tools/setup-macos.sh`.
+> [!NOTE]
+> `make setup` runs `make link` (symlinks configs) and `make install-tools` (installs fzf, bat, ripgrep, lazygit). Uses `tools/setup.sh` under the hood.
+
+---
+
+## 🐚 Makefile
+
+This project uses a Makefile for common tasks:
+
+```bash
+make help        # Show available targets
+make setup      # Initial setup (symlink + install tools)
+make link       # Symlink config files to home
+make install-tools # Install CLI tools (fzf, bat, ripgrep, lazygit)
+make update     # Update all tools (neovim, lazygit, kitty, tmux)
+make verify     # Verify configs are properly linked
+make clean      # Remove backup files
+```
 
 ---
 
@@ -39,6 +55,7 @@ cd $HOME/dotfiles
 
 ```
 dotfiles/
+├── Makefile              # 🐚 Makefile for common tasks
 ├── nvim/                # 🛠️ Neovim (IDE-like experience with lazy.nvim)
 ├── tmux/                # 🪟 Tmux (.tmux.conf with status bar enhancements)
 ├── fish/                # 🐟 Fish Shell (modern shell experience)

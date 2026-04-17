@@ -19,10 +19,9 @@ echo "Latest version: v$LATEST_VERSION"
 
 # Check installed version
 if command -v lazygit &> /dev/null; then
-    CURRENT_VERSION=$(lazygit --version | grep -Po "version \K[0-9.]+")
-    if [ "$CURRENT_VERSION" == "$LATEST_VERSION" ]; then
+    CURRENT_VERSION=$(lazygit --version | grep -Po "version \K[0-9.]+" || true)
+    if [ "$CURRENT_VERSION" = "$LATEST_VERSION" ]; then
         echo "lazygit is already up to date (v$CURRENT_VERSION)."
-        # Still update config just in case
         echo "Updating configuration..."
         mkdir -p "$HOME/.config/lazygit"
         if [ -f "$HOME/dotfiles/lazygit/config.yml" ]; then
@@ -32,8 +31,11 @@ if command -v lazygit &> /dev/null; then
             echo "Warning: ~/dotfiles/lazygit/config.yml not found."
         fi
         exit 0
+    elif [ -z "$CURRENT_VERSION" ]; then
+        echo "lazygit is unversioned, fetching v$LATEST_VERSION..."
+    else
+        echo "Updating from v${CURRENT_VERSION} to v$LATEST_VERSION..."
     fi
-    echo "Updating from v${CURRENT_VERSION:-unknown} to v$LATEST_VERSION..."
 else
     echo "Installing lazygit v$LATEST_VERSION..."
 fi
