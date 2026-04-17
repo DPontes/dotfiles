@@ -9,7 +9,7 @@ return {
 		local config = require("nvim-treesitter.configs")
 		config.setup({
 			auto_install = true,
-			ensure_installed = { "json5" },
+			ensure_installed = { "json5", "markdown", "markdown_inline", "bash", "python" },
 			highlight = { enable = true },
 			indent = { enable = true },
 		})
