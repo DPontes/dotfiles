@@ -1,16 +1,15 @@
-# 🌌 Tokyo Night Dotfiles
+# Dotfiles
 
 [![OS: Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/)
 [![Shell: Bash/Fish](https://img.shields.io/badge/Shell-Bash%2FFish-green?logo=gnubash&logoColor=white)](https://www.gnu.org/software/bash/)
 [![Editor: Neovim](https://img.shields.io/badge/Editor-Neovim-90E59A?logo=neovim&logoColor=white)](https://neovim.io/)
 [![Multiplexer: tmux](https://img.shields.io/badge/Multiplexer-tmux-blueviolet?logo=tmux&logoColor=white)](https://github.com/tmux/tmux)
-[![Theme: Tokyo Night](https://img.shields.io/badge/Theme-Tokyo%20Night-7aa2f7)](https://github.com/folke/tokyonight.nvim)
 
-A comprehensive, aesthetic, and automated development environment tailored for C++, Python, and general software engineering. Features a unified **Tokyo Night** color scheme across Neovim, Tmux, Kitty, and Fish.
+A comprehensive, aesthetic, and automated development environment tailored for C++, Python, and general software engineering. Features a unified **Opencode.ai color theme** across Neovim, Tmux, Kitty, and Fish.
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 Get up and running in minutes:
 
@@ -25,7 +24,7 @@ make setup
 
 ---
 
-## 🐚 Makefile
+## Makefile
 
 This project uses a Makefile for common tasks:
 
@@ -41,9 +40,9 @@ make clean      # Remove backup files
 
 ---
 
-## ✨ Features
+## Features
 
-- **Unified Aesthetics**: Consistent [Tokyo Night](https://github.com/folke/tokyonight.nvim) theme across all tools.
+- **Unified Aesthetics**: Consistent Opencode.ai color theme theme across all tools.
 - **Powerhouse Editor**: Pre-configured Neovim with LSP, Treesitter, Debugging (DAP), and Copilot integration.
 - **Robust Multiplexer**: Tmux with a custom status bar showing weather, battery, and system connectivity.
 - **Intelligent Shell**: Dual-shell support (Bash/Fish) with Git integration, Vi-mode, and smart aliases.
@@ -51,44 +50,44 @@ make clean      # Remove backup files
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```
 dotfiles/
-├── Makefile              # 🐚 Makefile for common tasks
-├── nvim/                # 🛠️ Neovim (IDE-like experience with lazy.nvim)
-├── tmux/                # 🪟 Tmux (.tmux.conf with status bar enhancements)
-├── fish/                # 🐟 Fish Shell (modern shell experience)
-├── kitty/               # 🐈 Kitty Terminal (GPU-accelerated terminal)
-├── lazygit/             # 🌿 Lazygit (TUI for Git with Gerrit support)
-├── tools/               # 🔧 Utility Scripts (Automation & system tools)
-└── extra-bash           # 🐚 Shell initialization & environment setup
+├── Makefile              # Makefile for common tasks
+├── nvim/                # Neovim (IDE-like experience with lazy.nvim)
+├── tmux/                # Tmux (.tmux.conf with status bar enhancements)
+├── fish/                # Fish Shell (modern shell experience)
+├── kitty/               # Kitty Terminal (GPU-accelerated terminal)
+├── lazygit/             # Lazygit (TUI for Git with Gerrit support)
+├── tools/               # Utility Scripts (Automation & system tools)
+└── extra-bash           # Shell initialization & environment setup
 ```
 
 ---
 
-## 🛠️ Components Detail
+## Components Detail
 
-### 💻 Editor (Neovim)
+### Editor (Neovim)
 Managed by `lazy.nvim`. Key plugins include:
 - **LSP**: `mason.nvim` & `nvim-lspconfig` for C++, Python, Lua, and more.
 - **DAP**: Debugging support with `codelldb` and a custom CLI `dap-debug.sh`.
 - **AI**: GitHub Copilot and CopilotChat integration.
 - **UI**: `lualine.nvim`, `neo-tree`, and `telescope.nvim`.
 
-### 🐚 Shells (Bash & Fish)
+### Shells (Bash & Fish)
 - **Bash**: Enhanced with `extra-bash`, featuring a Git-aware prompt and Vi-mode.
 - **Fish**: Fully configured with aliases, Vi-mode, and custom functions in `fish/`.
 - **Aliases**: Common shortcuts for Git, navigation, and system maintenance in `.bash_aliases`.
 
-### 🪟 Multiplexer (Tmux)
+### Multiplexer (Tmux)
 - **Prefix**: `Ctrl-s` (ergonomic replacement for `Ctrl-b`).
 - **Status Bar**: Real-time updates for weather (Open-Meteo), VPN status, and Bluetooth.
 - **Navigation**: Vi-style pane switching (`h,j,k,l`).
 
 ---
 
-## 🔧 Customization
+## Customization
 
 To override default settings without polluting the main repository:
 
@@ -97,7 +96,7 @@ To override default settings without polluting the main repository:
 
 ---
 
-## 🛠️ Utility Tools (`tools/`)
+## Utility Tools (`tools/`)
 
 | Script | Purpose |
 | :--- | :--- |
@@ -108,7 +107,7 @@ To override default settings without polluting the main repository:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request or open an issue for any bugs or feature requests.
 
@@ -120,7 +119,7 @@ Contributions are welcome! Please feel free to submit a Pull Request or open an 
 
 ---
 
-## 📄 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
