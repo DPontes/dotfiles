@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# File: tools/tmux-bluetooth.sh
+# File: tmux/tmux-bluetooth.sh
 # Description: Check if Bluetooth is powered on and a device is connected for tmux status line.
 # Dependencies: bluetoothctl
 

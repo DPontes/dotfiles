@@ -57,6 +57,7 @@ dotfiles/
 ├── Makefile              # Makefile for common tasks
 ├── nvim/                # Neovim (IDE-like experience with lazy.nvim)
 ├── .tmux.conf           # Tmux config with status bar enhancements
+├── tmux/                # Tmux status bar scripts (tmux-*.sh)
 ├── fish/                # Fish Shell (modern shell experience)
 ├── kitty/               # Kitty Terminal (GPU-accelerated terminal)
 ├── lazygit/             # Lazygit (TUI for Git with Gerrit support)
@@ -105,9 +106,9 @@ To override default settings without polluting the main repository:
 | `dap-debug.sh` | CLI wrapper for GDB/DAP, enabling agent-based C++ debugging. |
 | `update-*.sh` | Automated update scripts for Neovim, Lazygit, Kitty, and Tmux. |
 
-## Tmux Status Bar Scripts (`tools/tmux-*.sh`)
+## Tmux Scripts (`tmux/tmux-*.sh`)
 
-These scripts display real-time information in the tmux status bar:
+Scripts that display real-time information in the tmux status bar:
 
 | Script | Description | Status Bar |
 | :--- | :--- | :--- |
@@ -116,7 +117,7 @@ These scripts display real-time information in the tmux status bar:
 | `tmux-vpn.sh` | Shows active VPN connection name | Right side |
 | `tmux-weather.sh` | Fetches weather data with 5-minute cache | Right side |
 
-These are called automatically by tmux via `.tmux.conf`. They run on each status bar refresh.
+These are in `tmux/` and called automatically by tmux via `.tmux.conf`. They run on each status bar refresh.
 
 ---
 

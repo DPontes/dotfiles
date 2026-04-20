@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# File: tools/tmux-vpn.sh
+# File: tmux/tmux-vpn.sh
 # Description: Shows active VPN connection for tmux status line.
 # Dependencies: nmcli, grep, head, cut
 
