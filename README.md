@@ -56,12 +56,12 @@ make clean      # Remove backup files
 dotfiles/
 ├── Makefile              # Makefile for common tasks
 ├── nvim/                # Neovim (IDE-like experience with lazy.nvim)
-├── tmux/                # Tmux (.tmux.conf with status bar enhancements)
+├── .tmux.conf           # Tmux config with status bar enhancements
 ├── fish/                # Fish Shell (modern shell experience)
 ├── kitty/               # Kitty Terminal (GPU-accelerated terminal)
 ├── lazygit/             # Lazygit (TUI for Git with Gerrit support)
 ├── tools/               # Utility Scripts (Automation & system tools)
-└── extra-bash           # Shell initialization & environment setup
+└── extra-bash           # Bash initialization & environment setup
 ```
 
 ---
@@ -91,8 +91,8 @@ Managed by `lazy.nvim`. Key plugins include:
 
 To override default settings without polluting the main repository:
 
-1. **Weather City**: Set `export TMUX_CITY="YourCity"` in your `.bashrc` or `.zshrc`.
-2. **Local Settings**: The `setup.sh` script sources `$HOME/.bash_local` if it exists. Use this for machine-specific environment variables.
+1. **Weather City**: The city is stored in `@city` tmux variable (default: `Gothenburg`). Edit `.tmux.conf` line 60 to change it.
+2. **Local Settings**: The `setup.sh` script adds `source $DOTFILES_DIR/extra-bash` to `.bashrc`. Use that file or your own `~/.bash_local` for machine-specific environment variables.
 
 ---
 
@@ -101,7 +101,7 @@ To override default settings without polluting the main repository:
 | Script | Purpose |
 | :--- | :--- |
 | `bt-connect.sh` | CLI-based Bluetooth device management with connection spinner. |
-| `weather.sh` | Fetches weather data with a 5-minute cache to respect API limits. |
+| `tmux-weather.sh` | Fetches weather data with a 5-minute cache to respect API limits. |
 | `dap-debug.sh` | CLI wrapper for GDB/DAP, enabling agent-based C++ debugging. |
 | `update-*.sh` | Automated update scripts for Neovim, Lazygit, Kitty, and Tmux. |
 
