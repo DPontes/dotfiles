@@ -8,11 +8,12 @@
 
 ## Key Paths
 - `$HOME/dotfiles/tmux/tmux-*.sh` - Scripts called by tmux status bar (run frequently, keep fast/fail-safe)
+- `$HOME/dotfiles/update-scripts/update-*.sh` - Update scripts for Neovim, Lazygit, Kitty, Tmux
 - `$HOME/dotfiles/.tmux.conf` - Tmux config (prefix: `Ctrl-s`)
 - Tools depend on: `nmcli` (VPN/Bluetooth), `curl` (weather)
 
 ## Script Safety
-Scripts in `tools/` are invoked by tmux on every status bar refresh or by shell aliases. They must:
+Scripts in `tmux/` are invoked by tmux on every status bar refresh. They must:
 - Be fast (status bar scripts run every 30s)
 - Handle missing dependencies gracefully
 - Never fail hard when external services are unavailable
