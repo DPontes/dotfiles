@@ -12,7 +12,7 @@ if ! command -v nmcli &> /dev/null; then
     exit 0
 fi
 
-vpn=$(nmcli -t -f NAME,TYPE con show --active 2>/dev/null | grep ':vpn\|:wireguard' | head -1 | cut -d: -f1)
+vpn=$(nmcli -t -f NAME,TYPE con show --active 2>/dev/null | grep ':vpn\|:wireguard' | head -1 | cut -d: -f1) || true
 if [ -n "$vpn" ]; then
   echo "󰒄 $vpn"
 else
