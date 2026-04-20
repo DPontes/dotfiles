@@ -2,6 +2,7 @@
 
 DOTFILES := $(HOME)/dotfiles
 TOOLS := $(DOTFILES)/tools
+UPDATES := $(DOTFILES)/update-scripts
 
 help:
 	@echo "Dotfiles Makefile"
@@ -33,10 +34,10 @@ install-tools:
 
 update:
 	@echo "Updating tools..."
-	@$(TOOLS)/update-neovim.sh || true
-	@$(TOOLS)/update-lazygit.sh || true
-	@$(TOOLS)/update-kitty.sh || true
-	@$(TOOLS)/update-tmux.sh || true
+	@$(UPDATES)/update-neovim.sh || true
+	@$(UPDATES)/update-lazygit.sh || true
+	@$(UPDATES)/update-kitty.sh || true
+	@$(UPDATES)/update-tmux.sh || true
 	@echo "Update complete."
 
 verify:

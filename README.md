@@ -104,7 +104,7 @@ To override default settings without polluting the main repository:
 | `bt-connect.sh` | CLI-based Bluetooth device management with connection spinner. |
 | `tmux-weather.sh` | Fetches weather data with a 5-minute cache to respect API limits. |
 | `dap-debug.sh` | CLI wrapper for GDB/DAP, enabling agent-based C++ debugging. |
-| `update-*.sh` | Automated update scripts for Neovim, Lazygit, Kitty, and Tmux. |
+| `update-scripts/update-*.sh` | Automated update scripts for Neovim, Lazygit, Kitty, and Tmux. |
 
 ## Tmux Scripts (`tmux/tmux-*.sh`)
 
