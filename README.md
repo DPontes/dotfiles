@@ -48,25 +48,6 @@ make clean      # Remove backup files
 - **Intelligent Shell**: Dual-shell support (Bash/Fish) with Git integration, Vi-mode, and smart aliases.
 - **Automated Tooling**: Custom scripts for Bluetooth management, system updates, and DAP-based debugging.
 
----
-
-## Repository Structure
-
-```
-dotfiles/
-├── Makefile              # Makefile for common tasks
-├── nvim/                # Neovim (IDE-like experience with lazy.nvim)
-├── .tmux.conf           # Tmux config with status bar enhancements
-├── tmux/                # Tmux status bar scripts (tmux-*.sh)
-├── fish/                # Fish Shell (modern shell experience)
-├── kitty/               # Kitty Terminal (GPU-accelerated terminal)
-├── lazygit/             # Lazygit (TUI for Git with Gerrit support)
-├── tools/               # Utility Scripts (Automation & system tools)
-└── extra-bash           # Bash initialization & environment setup
-```
-
----
-
 ## Components Detail
 
 ### Editor (Neovim)
