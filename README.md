@@ -101,10 +101,20 @@ To override default settings without polluting the main repository:
 
 | Script | Purpose |
 | :--- | :--- |
+| `setup.sh` | Main bootstrap script — installs tools (fzf, bat, ripgrep, lazygit), sets git aliases |
 | `bt-connect.sh` | CLI-based Bluetooth device management with connection spinner. |
-| `tmux-weather.sh` | Fetches weather data with a 5-minute cache to respect API limits. |
 | `dap-debug.sh` | CLI wrapper for GDB/DAP, enabling agent-based C++ debugging. |
-| `update-scripts/update-*.sh` | Automated update scripts for Neovim, Lazygit, Kitty, and Tmux. |
+
+## Update Scripts (`update-scripts/`)
+
+Automated update scripts for installing the latest versions of tools. Run via `make update`.
+
+| Script | Description |
+| :--- | :--- |
+| `update-neovim.sh` | Downloads and installs the latest Neovim AppImage |
+| `update-lazygit.sh` | Downloads and installs the latest Lazygit release |
+| `update-kitty.sh` | Checks for the latest stable kitty release, shows changelog, and installs if confirmed |
+| `update-tmux.sh` | Checks for the latest tmux release, shows changelog, builds from source, and installs if confirmed |
 
 ## Tmux Scripts (`tmux/tmux-*.sh`)
 
