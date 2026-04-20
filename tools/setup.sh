@@ -69,9 +69,9 @@ mkdir -p "$HOME/.config/lazygit"
 ln -sfT "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 ln -sf "$DOTFILES_DIR/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
 
-# gnome dock
+# Disable Ubuntu dock extension in GNOME
 if command -v gnome-extensions &> /dev/null; then
-    echo "Disabling gnome dock..."
+    echo "Disabling Ubuntu dock extension..."
     gnome-extensions disable ubuntu-dock@ubuntu.com || true
 fi
 
