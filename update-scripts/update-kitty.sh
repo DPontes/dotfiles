@@ -13,7 +13,7 @@ case "$ARCH" in
     *) echo "Unsupported architecture: $ARCH"; exit 1 ;;
 esac
 
-echo "Fetching latest kitty release info..."
+echo "=== kitty ==="
 RELEASE_JSON=$(curl -sf "https://api.github.com/repos/$REPO/releases/latest") || {
     echo "Error: failed to fetch release info from GitHub."; exit 1
 }
@@ -21,7 +21,6 @@ RELEASE_JSON=$(curl -sf "https://api.github.com/repos/$REPO/releases/latest") ||
 LATEST_TAG=$(echo "$RELEASE_JSON" | python3 -c "import sys,json; print(json.load(sys.stdin)['tag_name'])")
 LATEST_VERSION="${LATEST_TAG#v}"
 
-# Get currently installed version (if any)
 CURRENT_VERSION=""
 if command -v kitty &>/dev/null; then
     CURRENT_VERSION=$(kitty --version 2>/dev/null | awk '{print $2}')
@@ -32,7 +31,8 @@ echo "Latest:    $LATEST_VERSION"
 echo
 
 if [ "$CURRENT_VERSION" = "$LATEST_VERSION" ]; then
-    echo "✓ kitty $CURRENT_VERSION is already the latest stable version."
+    echo "✓ kitty is already the latest stable version."
+    echo
     exit 0
 fi
 

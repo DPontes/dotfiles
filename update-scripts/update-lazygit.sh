@@ -9,18 +9,20 @@ if [ -z "$LATEST_VERSION" ]; then
     exit 1
 fi
 
-echo "Latest Lazygit version: $LATEST_VERSION"
-
+CURRENT_VERSION=""
 if command -v lazygit &> /dev/null; then
     CURRENT_VERSION=$(lazygit --version | grep -oP "(?<!git )version=\K[0-9.]+" | head -1 || true)
-    if [ "$CURRENT_VERSION" = "$LATEST_VERSION" ]; then
-        echo "Current Lazygit version: $CURRENT_VERSION"
-        echo "✓ Lazygit is already up-to-date!"
-        exit 0
-    fi
-    echo "Current Lazygit version: $CURRENT_VERSION"
-else
-    echo "Lazygit not installed"
+fi
+
+echo "=== lazygit ==="
+echo "Installed: ${CURRENT_VERSION:-none}"
+echo "Latest:    $LATEST_VERSION"
+echo
+
+if [ "$CURRENT_VERSION" = "$LATEST_VERSION" ]; then
+    echo "✓ Lazygit is already the latest stable version."
+    echo
+    exit 0
 fi
 
 TEMP_DIR=$(mktemp -d)
@@ -32,4 +34,5 @@ mv "$TEMP_DIR/lazygit" "$HOME/.local/bin/lazygit"
 chmod +x "$HOME/.local/bin/lazygit"
 rm -rf "$TEMP_DIR"
 
-echo "✓ lazygit is now updated!"
+echo "✓ Lazygit is now updated!"
+echo

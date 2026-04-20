@@ -34,6 +34,7 @@ install-tools:
 
 update:
 	@echo "Updating tools..."
+	@echo
 	@$(UPDATES)/update-neovim.sh || true
 	@$(UPDATES)/update-lazygit.sh || true
 	@$(UPDATES)/update-kitty.sh || true

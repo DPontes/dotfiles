@@ -10,7 +10,7 @@ trap 'rm -rf "$BUILD_DIR"' EXIT
 # ──────────────────────────────────────────────────────────────────────
 # Detect latest version from GitHub
 # ──────────────────────────────────────────────────────────────────────
-echo "▸ Checking latest tmux release..."
+echo "=== tmux ==="
 TARGET_VERSION=$(curl -sfL "$GITHUB_API/releases/latest" \
     | grep '"tag_name"' | head -1 | sed 's/.*: "//;s/".*//')
 
@@ -19,15 +19,13 @@ if [ -z "$TARGET_VERSION" ]; then
     exit 1
 fi
 
-# ──────────────────────────────────────────────────────────────────────
-# Pre-flight checks
-# ──────────────────────────────────────────────────────────────────────
-echo "Current tmux version: ${CURRENT_VERSION:-not found}"
-echo "Latest tmux version:  $TARGET_VERSION"
-echo ""
+echo "Installed: ${CURRENT_VERSION:-none}"
+echo "Latest:    $TARGET_VERSION"
+echo
 
 if [ "${CURRENT_VERSION}" = "${TARGET_VERSION}" ]; then
-    echo "✓ Already running tmux $TARGET_VERSION. Nothing to do."
+    echo "✓ Tmux is already the latest stable version."
+    echo
     exit 0
 fi
 
@@ -112,6 +110,7 @@ fi
 INSTALLED_VERSION=$("$NEW_TMUX" -V | awk '{print $2}')
 echo ""
 echo "✓ tmux $INSTALLED_VERSION installed at $NEW_TMUX"
+echo
 
 # ──────────────────────────────────────────────────────────────────────
 # Restart tmux server to pick up the new binary
