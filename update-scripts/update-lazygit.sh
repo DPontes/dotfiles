@@ -25,8 +25,16 @@ if [ "$CURRENT_VERSION" = "$LATEST_VERSION" ]; then
     exit 0
 fi
 
+ARCH=$(uname -m)
+case "$ARCH" in
+    x86_64)  LG_ARCH="x86_64" ;;
+    aarch64) LG_ARCH="arm64" ;;
+    armv7l)  LG_ARCH="armv6" ;;
+    *) echo "Unsupported arch: $ARCH"; exit 1 ;;
+esac
+
 TEMP_DIR=$(mktemp -d)
-curl -sL "https://github.com/jesseduffield/lazygit/releases/download/v${LATEST_VERSION}/lazygit_${LATEST_VERSION}_Linux_x86_64.tar.gz" | tar xz -C "$TEMP_DIR" lazygit
+curl -sL "https://github.com/jesseduffield/lazygit/releases/download/v${LATEST_VERSION}/lazygit_${LATEST_VERSION}_Linux_${LG_ARCH}.tar.gz" | tar xz -C "$TEMP_DIR" lazygit
 
 mkdir -p "$HOME/.local/bin"
 rm -f "$HOME/.local/bin/lazygit"

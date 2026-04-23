@@ -4,19 +4,22 @@
 # Description: Fetches and caches current weather information for a specified city using Open-Meteo API.
 # Dependencies: curl, jq, md5sum, stat
 
-set -euo pipefail
+CACHE_TTL=300  # seconds between API calls
+
+CITY="$*"
+if [[ -z "$CITY" ]]; then
+    echo "❓ no city"
+    exit 0
+fi
 
 # Check for required dependencies
 for cmd in curl jq md5sum stat; do
     if ! command -v "$cmd" &> /dev/null; then
-        echo "Error: Required dependency '$cmd' is not installed." >&2
-        exit 1
+        echo "❓ missing $cmd"
+        exit 0
     fi
 done
 
-CACHE_TTL=300  # seconds between API calls
-
-CITY="${*:?Usage: weather.sh <city name>}"
 CACHE_FILE="/tmp/weather_cache_$(printf '%s' "$CITY" | md5sum | cut -d' ' -f1)"
 
 # Serve from cache if fresh enough
@@ -31,22 +34,27 @@ fi
 ENCODED_CITY=$(printf '%s' "$CITY" | jq -sRr @uri)
 
 # Geocode city name
-GEO=$(curl -sf "https://geocoding-api.open-meteo.com/v1/search?name=${ENCODED_CITY}&count=1")
-LAT=$(printf '%s' "$GEO" | jq -r '.results[0].latitude // empty')
-LON=$(printf '%s' "$GEO" | jq -r '.results[0].longitude // empty')
+GEO=$(curl -sf --max-time 5 "https://geocoding-api.open-meteo.com/v1/search?name=${ENCODED_CITY}&count=1" 2>/dev/null) || true
+LAT=$(printf '%s' "$GEO" | jq -r '.results[0].latitude // empty' 2>/dev/null) || true
+LON=$(printf '%s' "$GEO" | jq -r '.results[0].longitude // empty' 2>/dev/null) || true
 
 if [[ -z "$LAT" || -z "$LON" ]]; then
-  printf '❓ %s?' "$CITY"
-  exit 1
+  echo "❓ $CITY?"
+  exit 0
 fi
 
 # Fetch current weather + daily min/max
-WEATHER=$(curl -sf "https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current_weather=true&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=1")
+WEATHER=$(curl -sf --max-time 5 "https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current_weather=true&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=1" 2>/dev/null) || true
 
-CODE=$(printf '%s' "$WEATHER" | jq -r '.current_weather.weathercode')
-TEMP=$(printf '%s' "$WEATHER" | jq -r '.current_weather.temperature')
-TMIN=$(printf '%s' "$WEATHER" | jq -r '.daily.temperature_2m_min[0]')
-TMAX=$(printf '%s' "$WEATHER" | jq -r '.daily.temperature_2m_max[0]')
+CODE=$(printf '%s' "$WEATHER" | jq -r '.current_weather.weathercode // empty' 2>/dev/null) || true
+TEMP=$(printf '%s' "$WEATHER" | jq -r '.current_weather.temperature // empty' 2>/dev/null) || true
+TMIN=$(printf '%s' "$WEATHER" | jq -r '.daily.temperature_2m_min[0] // empty' 2>/dev/null) || true
+TMAX=$(printf '%s' "$WEATHER" | jq -r '.daily.temperature_2m_max[0] // empty' 2>/dev/null) || true
+
+if [[ -z "$TEMP" ]]; then
+  echo "❓ offline"
+  exit 0
+fi
 
 # Round temperatures to integers
 TEMP=$(printf '%.0f' "$TEMP")

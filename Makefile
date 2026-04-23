@@ -20,17 +20,19 @@ setup: link install-tools
 
 link:
 	@echo "Symlinking config files..."
+	@test -d $(DOTFILES) || { echo "Error: $(DOTFILES) not found"; exit 1; }
 	@ln -sf $(DOTFILES)/.bash_aliases $(HOME)/.bash_aliases
 	@ln -sf $(DOTFILES)/.tmux.conf $(HOME)/.tmux.conf
-	@rm -rf $(HOME)/.config/fish && ln -sf $(DOTFILES)/fish $(HOME)/.config/fish
-	@rm -rf $(HOME)/.config/nvim && ln -sf $(DOTFILES)/nvim $(HOME)/.config/nvim
-	@rm -rf $(HOME)/.config/kitty && ln -sf $(DOTFILES)/kitty $(HOME)/.config/kitty
-	@rm -rf $(HOME)/.config/lazygit && ln -sf $(DOTFILES)/lazygit $(HOME)/.config/lazygit
+	@test -d $(DOTFILES)/fish && rm -rf $(HOME)/.config/fish && ln -sf $(DOTFILES)/fish $(HOME)/.config/fish
+	@test -d $(DOTFILES)/nvim && rm -rf $(HOME)/.config/nvim && ln -sf $(DOTFILES)/nvim $(HOME)/.config/nvim
+	@test -d $(DOTFILES)/kitty && rm -rf $(HOME)/.config/kitty && ln -sf $(DOTFILES)/kitty $(HOME)/.config/kitty
+	@test -d $(DOTFILES)/lazygit && rm -rf $(HOME)/.config/lazygit && ln -sf $(DOTFILES)/lazygit $(HOME)/.config/lazygit
+	@grep -qF "source $(DOTFILES)/extra-bash" $(HOME)/.bashrc 2>/dev/null || echo "source $(DOTFILES)/extra-bash" >> $(HOME)/.bashrc
 	@echo "Symlinks created."
 
 install-tools:
 	@echo "Installing tools..."
-	@$(TOOLS)/setup.sh 2>/dev/null || echo "Run tools/setup.sh manually"
+	@$(TOOLS)/setup.sh || { echo "setup.sh failed — check output above"; exit 1; }
 
 update:
 	@echo "Updating tools..."

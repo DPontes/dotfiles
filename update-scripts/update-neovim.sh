@@ -31,10 +31,18 @@ if [[ ! "$answer" =~ ^[Yy]$ ]]; then
     exit 0
 fi
 
+ARCH=$(uname -m)
+case "$ARCH" in
+    x86_64)  NVIM_ARCH="x86_64" ;;
+    aarch64) NVIM_ARCH="arm64" ;;
+    *) echo "Unsupported arch: $ARCH"; exit 1 ;;
+esac
+APPIMAGE="nvim-linux-${NVIM_ARCH}.appimage"
+
 echo "Downloading neovim..."
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
-chmod u+x nvim-linux-x86_64.appimage
-sudo mv ./nvim-linux-x86_64.appimage /usr/local/bin/nvim
+curl -LO "https://github.com/neovim/neovim/releases/latest/download/${APPIMAGE}"
+chmod u+x "${APPIMAGE}"
+sudo mv "./${APPIMAGE}" /usr/local/bin/nvim
 echo "✓ Neovim is now updated!"
 echo
 nvim --version | head -1

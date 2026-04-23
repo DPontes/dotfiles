@@ -56,10 +56,19 @@ fi
 if ! command -v lazygit &> /dev/null; then
     echo "Installing lazygit..."
     LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": *"v\K[^"]*')
-    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-    tar xf lazygit.tar.gz lazygit
-    sudo install lazygit /usr/local/bin/
-    rm lazygit lazygit.tar.gz
+    ARCH=$(uname -m)
+    case "$ARCH" in
+        x86_64)  LG_ARCH="x86_64" ;;
+        aarch64) LG_ARCH="arm64" ;;
+        armv7l)  LG_ARCH="armv6" ;;
+        *) echo "Unsupported arch: $ARCH"; exit 1 ;;
+    esac
+    TEMP_DIR=$(mktemp -d)
+    curl -sL "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_${LG_ARCH}.tar.gz" | tar xz -C "$TEMP_DIR" lazygit
+    mkdir -p "$HOME/.local/bin"
+    mv "$TEMP_DIR/lazygit" "$HOME/.local/bin/lazygit"
+    chmod +x "$HOME/.local/bin/lazygit"
+    rm -rf "$TEMP_DIR"
 fi
 
 # Neovim and lazygit config
@@ -76,19 +85,17 @@ if command -v gnome-extensions &> /dev/null; then
 fi
 
 # Fish shell configuration
-if [[ ! -L "$HOME/.config/fish/config.fish" ]]; then
+if [[ ! -L "$HOME/.config/fish" ]]; then
     echo "Linking fish config..."
-    mkdir -p "$HOME/.config/fish"
-    ln -sf "$DOTFILES_DIR/fish/config.fish" "$HOME/.config/fish/config.fish"
-    rm -rf "$HOME/.config/fish/functions"
-    ln -sf "$DOTFILES_DIR/fish/functions" "$HOME/.config/fish/functions"
+    rm -rf "$HOME/.config/fish"
+    ln -sf "$DOTFILES_DIR/fish" "$HOME/.config/fish"
 fi
 
 # Kitty terminal configuration
-if [[ ! -L "$HOME/.config/kitty/kitty.conf" ]]; then
+if [[ ! -L "$HOME/.config/kitty" ]]; then
     echo "Linking kitty config..."
-    mkdir -p "$HOME/.config/kitty"
-    ln -sf "$DOTFILES_DIR/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+    rm -rf "$HOME/.config/kitty"
+    ln -sf "$DOTFILES_DIR/kitty" "$HOME/.config/kitty"
 fi
 
 # Append extra-bash to .bashrc if not already present
