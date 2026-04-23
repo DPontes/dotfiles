@@ -22,6 +22,9 @@ make setup
 > [!NOTE]
 > `make setup` runs `make link` (symlinks configs) and `make install-tools` (installs fzf, bat, ripgrep, lazygit). Uses `tools/setup.sh` under the hood.
 
+> [!NOTE]
+> Supported architectures: `x86_64` and `aarch64` (arm64). Tool installers auto-detect the host arch via `uname -m`.
+
 ---
 
 ## Makefile
@@ -29,14 +32,17 @@ make setup
 This project uses a Makefile for common tasks:
 
 ```bash
-make help        # Show available targets
-make setup      # Initial setup (symlink + install tools)
-make link       # Symlink config files to home
+make help          # Show available targets
+make setup         # Initial setup (symlink + install tools)
+make link          # Symlink config files to home; also appends extra-bash to .bashrc
 make install-tools # Install CLI tools (fzf, bat, ripgrep, lazygit)
-make update     # Update all tools (neovim, lazygit, kitty, tmux)
-make verify     # Verify configs are properly linked
-make clean      # Remove backup files
+make update        # Update all tools (neovim, lazygit, kitty, tmux)
+make verify        # Verify configs are properly linked
+make clean         # Remove backup files
 ```
+
+> [!NOTE]
+> `make link` guards each config directory: it verifies the source exists before removing the destination, preventing accidental data loss. `make install-tools` exits non-zero and prints the error if `setup.sh` fails.
 
 ---
 
@@ -74,7 +80,7 @@ Managed by `lazy.nvim`. Key plugins include:
 To override default settings without polluting the main repository:
 
 1. **Weather City**: The city is stored in `@city` tmux variable (default: `Gothenburg`). Edit `.tmux.conf` line 60 to change it.
-2. **Local Settings**: The `setup.sh` script adds `source $DOTFILES_DIR/extra-bash` to `.bashrc`. Use that file or your own `~/.bash_local` for machine-specific environment variables.
+2. **Local Settings**: Both `make link` and `setup.sh` append `source $DOTFILES_DIR/extra-bash` to `.bashrc` (idempotent). Use that file or your own `~/.bash_local` for machine-specific environment variables.
 
 ---
 
@@ -92,8 +98,8 @@ Automated update scripts for installing the latest versions of tools. Run via `m
 
 | Script | Description |
 | :--- | :--- |
-| `update-neovim.sh` | Downloads and installs the latest Neovim AppImage |
-| `update-lazygit.sh` | Downloads and installs the latest Lazygit release |
+| `update-neovim.sh` | Downloads and installs the latest Neovim AppImage (`x86_64` / `arm64`) |
+| `update-lazygit.sh` | Downloads and installs the latest Lazygit release (`x86_64` / `arm64`) |
 | `update-kitty.sh` | Checks for the latest stable kitty release, shows changelog, and installs if confirmed |
 | `update-tmux.sh` | Checks for the latest tmux release, shows changelog, builds from source, and installs if confirmed |
 
