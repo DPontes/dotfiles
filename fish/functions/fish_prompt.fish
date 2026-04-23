@@ -48,7 +48,7 @@ function fish_prompt
                 set -l now (date +%s)
                 if not set -q __prio_gate_ts; or test (math $now - $__prio_gate_ts) -ge 60
                     set -l _result (curl -sf -m 3 \
-                        'https://munin.cicd.autoheim.net/prio/src/src' \
+                        'https://munin.cicd.autoheim.net/prio/src' \
                         -H 'accept: application/json' 2>/dev/null \
                         | string match -r '"prio_gate"\s*:\s*"([^"]+)"' | tail -1)
                     if test -n "$_result"
