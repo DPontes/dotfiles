@@ -5,7 +5,7 @@
 [![Editor: Neovim](https://img.shields.io/badge/Editor-Neovim-90E59A?logo=neovim&logoColor=white)](https://neovim.io/)
 [![Multiplexer: tmux](https://img.shields.io/badge/Multiplexer-tmux-blueviolet?logo=tmux&logoColor=white)](https://github.com/tmux/tmux)
 
-A comprehensive, aesthetic, and automated development environment tailored for C++, Python, and general software engineering. Features a unified **Opencode.ai color theme** across Neovim, Tmux, Kitty, and Fish.
+A comprehensive, aesthetic, and automated development environment tailored for C++, Python, and general software engineering. Features a swappable colour theme system across Neovim, Tmux, Kitty, and Fish — currently using **Flexoki Dark**.
 
 ---
 
@@ -32,13 +32,15 @@ make setup
 This project uses a Makefile for common tasks:
 
 ```bash
-make help          # Show available targets
-make setup         # Initial setup (symlink + install tools)
-make link          # Symlink config files to home; also appends extra-bash to .bashrc
-make install-tools # Install CLI tools (fzf, bat, ripgrep, lazygit)
-make update        # Update all tools (neovim, lazygit, kitty, tmux)
-make verify        # Verify configs are properly linked
-make clean         # Remove backup files
+make help            # Show available targets
+make setup           # Initial setup (symlink + install tools)
+make link            # Symlink config files to home; also appends extra-bash to .bashrc
+make install-tools   # Install CLI tools (fzf, bat, ripgrep, lazygit)
+make update          # Update all tools (neovim, lazygit, kitty, tmux)
+make verify          # Verify configs are properly linked
+make clean           # Remove backup files
+make theme           # Apply the active colour theme (default: flexoki)
+make theme THEME=x   # Apply a specific theme (e.g. opencode)
 ```
 
 > [!NOTE]
@@ -48,7 +50,7 @@ make clean         # Remove backup files
 
 ## Features
 
-- **Unified Aesthetics**: Consistent Opencode.ai color theme theme across all tools.
+- **Swappable Themes**: Centralized colour palette system — one file drives kitty, tmux, neovim, and fish. Switch themes with `make theme THEME=<name>`.
 - **Powerhouse Editor**: Pre-configured Neovim with LSP, Treesitter, Debugging (DAP), and Copilot integration.
 - **Robust Multiplexer**: Tmux with a custom status bar showing weather, battery, and system connectivity.
 - **Intelligent Shell**: Dual-shell support (Bash/Fish) with Git integration, Vi-mode, and smart aliases.
@@ -81,6 +83,26 @@ To override default settings without polluting the main repository:
 
 1. **Weather City**: The city is stored in `@city` tmux variable (default: `Gothenburg`). Edit `.tmux.conf` line 60 to change it.
 2. **Local Settings**: Both `make link` and `setup.sh` append `source $DOTFILES_DIR/extra-bash` to `.bashrc` (idempotent). Use that file or your own `~/.bash_local` for machine-specific environment variables.
+
+---
+
+## Themes (`themes/`)
+
+A centralized colour palette system. Each theme is a single shell file defining all colour variables; `apply-theme.sh` generates tool-specific output files from it.
+
+```bash
+make theme                 # Apply active theme (flexoki)
+make theme THEME=opencode  # Switch to a different theme
+```
+
+After applying, reload each tool: kitty (`ctrl+shift+F5`), tmux (`tmux source ~/.tmux.conf`), nvim (restart).
+
+| File          | Description                                                      |
+| :------------ | :--------------------------------------------------------------- |
+| `flexoki.sh`  | Flexoki Dark — warm blacks with orange and blue accents (active) |
+| `opencode.sh` | Original opencode.ai — muted blue-gray palette                   |
+
+See [`themes/README.md`](themes/README.md) for the full variable reference and instructions for creating new themes.
 
 ---
 
