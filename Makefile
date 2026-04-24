@@ -1,4 +1,4 @@
-.PHONY: help setup update install-tools link verify clean
+.PHONY: help setup update install-tools link verify clean theme
 
 DOTFILES := $(HOME)/dotfiles
 TOOLS := $(DOTFILES)/tools
@@ -14,6 +14,7 @@ help:
 	@echo "  update        - Update all tools (neovim, lazygit, kitty, tmux)"
 	@echo "  verify        - Verify configs are properly linked"
 	@echo "  clean         - Remove backup files"
+	@echo "  theme         - Regenerate color files from themes/opencode.sh"
 
 setup: link install-tools
 	@echo "Setup complete! Restart your shell."
@@ -56,3 +57,6 @@ clean:
 	@echo "Cleaning up..."
 	@rm -rf $(DOTFILES)/backup
 	@echo "Done."
+
+theme:
+	@bash $(DOTFILES)/themes/apply-theme.sh $(THEME)

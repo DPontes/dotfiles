@@ -4,44 +4,46 @@ return {
   priority = 1000,
   opts = {
     on_colors = function(c)
-      c.bg           = "#2A2524"
-      c.bg_dark      = "#1E1A19"
-      c.bg_highlight = "#3A3230"
-      c.bg_popup     = "#332C2B"
-      c.bg_search    = "#4A6B8A"
-      c.bg_sidebar   = "#1E1A19"
-      c.bg_statusline= "#1E1A19"
-      c.bg_visual    = "#3D3635"
-      c.fg           = "#F1ECEC"
-      c.fg_dark      = "#C4BFBF"
-      c.fg_gutter    = "#6A6464"
-      c.dark3        = "#6A6464"
-      c.dark5        = "#8E8888"
-      c.blue         = "#8AADCA"
-      c.blue1        = "#7A9AB5"
-      c.blue2        = "#6A8AA5"
-      c.blue5        = "#9AAFC0"
-      c.blue6        = "#B0C4D4"
-      c.blue7        = "#5C7A9A"
-      c.cyan         = "#9AAFC0"
-      c.teal         = "#7A9AB5"
-      c.green        = "#8AADCA"
-      c.green1       = "#9AAFC0"
-      c.green2       = "#B0C4D4"
-      c.red          = "#8B5050"
-      c.red1         = "#7A4040"
-      c.orange       = "#8B7050"
-      c.yellow       = "#A09080"
-      c.magenta      = "#9AAFC0"
-      c.magenta2     = "#8AADCA"
-      c.purple       = "#7A8FA0"
-      c.pink         = "#B0C4D4"
-      c.comment      = "#6A6464"
+      local p = require("palette")
+      c.bg            = p.bg
+      c.bg_dark       = p.bg_dark
+      c.bg_highlight  = p.bg_highlight
+      c.bg_popup      = p.bg_popup
+      c.bg_search     = p.bg_search
+      c.bg_sidebar    = p.bg_sidebar
+      c.bg_statusline = p.bg_statusline
+      c.bg_visual     = p.bg_visual
+      c.fg            = p.fg
+      c.fg_dark       = p.fg_dark
+      c.fg_gutter     = p.fg_gutter
+      c.dark3         = p.dark3
+      c.dark5         = p.dark5
+      c.blue          = p.blue
+      c.blue1         = p.blue1
+      c.blue2         = p.blue2
+      c.blue5         = p.blue5
+      c.blue6         = p.blue6
+      c.blue7         = p.blue7
+      c.cyan          = p.cyan
+      c.teal          = p.teal
+      c.green         = p.green
+      c.green1        = p.green1
+      c.green2        = p.green2
+      c.red           = p.red
+      c.red1          = p.red1
+      c.orange        = p.orange
+      c.yellow        = p.yellow
+      c.magenta       = p.magenta
+      c.magenta2      = p.magenta2
+      c.purple        = p.purple
+      c.pink          = p.pink
+      c.comment       = p.comment
     end,
     on_highlights = function(hl, _)
-      hl.LineNr      = { fg = "#6A6464" }
-      hl.LineNrAbove = { fg = "#6A6464" }
-      hl.LineNrBelow = { fg = "#6A6464" }
+      local p = require("palette")
+      hl.LineNr      = { fg = p.fg_gutter }
+      hl.LineNrAbove = { fg = p.fg_gutter }
+      hl.LineNrBelow = { fg = p.fg_gutter }
     end,
   },
   config = function(_, opts)

@@ -4,36 +4,37 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
+    local p = require("palette")
     local theme = {
       normal = {
-        a = { bg = "#4A6B8A", fg = "#F1ECEC", gui = "bold" },
-        b = { bg = "#2E2928", fg = "#C4BFBF" },
-        c = { bg = "#1E1A19", fg = "#8E8888" },
+        a = { bg = p.mode_normal,  fg = p.fg,       gui = "bold" },
+        b = { bg = p.surface_0,    fg = p.fg_dark },
+        c = { bg = p.bg_dark,      fg = p.dark5 },
       },
       insert = {
-        a = { bg = "#5C7A9A", fg = "#F1ECEC", gui = "bold" },
-        b = { bg = "#2E2928", fg = "#C4BFBF" },
-        c = { bg = "#1E1A19", fg = "#8E8888" },
+        a = { bg = p.mode_insert,  fg = p.fg,       gui = "bold" },
+        b = { bg = p.surface_0,    fg = p.fg_dark },
+        c = { bg = p.bg_dark,      fg = p.dark5 },
       },
       visual = {
-        a = { bg = "#7A8FA0", fg = "#F1ECEC", gui = "bold" },
-        b = { bg = "#2E2928", fg = "#C4BFBF" },
-        c = { bg = "#1E1A19", fg = "#8E8888" },
+        a = { bg = p.mode_visual,  fg = p.fg,       gui = "bold" },
+        b = { bg = p.surface_0,    fg = p.fg_dark },
+        c = { bg = p.bg_dark,      fg = p.dark5 },
       },
       replace = {
-        a = { bg = "#8B5050", fg = "#F1ECEC", gui = "bold" },
-        b = { bg = "#2E2928", fg = "#C4BFBF" },
-        c = { bg = "#1E1A19", fg = "#8E8888" },
+        a = { bg = p.mode_replace, fg = p.fg,       gui = "bold" },
+        b = { bg = p.surface_0,    fg = p.fg_dark },
+        c = { bg = p.bg_dark,      fg = p.dark5 },
       },
       command = {
-        a = { bg = "#8AADCA", fg = "#1E1A19", gui = "bold" },
-        b = { bg = "#2E2928", fg = "#C4BFBF" },
-        c = { bg = "#1E1A19", fg = "#8E8888" },
+        a = { bg = p.mode_command, fg = p.mode_command_fg, gui = "bold" },
+        b = { bg = p.surface_0,    fg = p.fg_dark },
+        c = { bg = p.bg_dark,      fg = p.dark5 },
       },
       inactive = {
-        a = { bg = "#1E1A19", fg = "#6A6464", gui = "bold" },
-        b = { bg = "#1E1A19", fg = "#6A6464" },
-        c = { bg = "#1E1A19", fg = "#6A6464" },
+        a = { bg = p.bg_dark,      fg = p.fg_gutter, gui = "bold" },
+        b = { bg = p.bg_dark,      fg = p.fg_gutter },
+        c = { bg = p.bg_dark,      fg = p.fg_gutter },
       },
     }
 
